@@ -1,5 +1,5 @@
 //
-//  Colors.swift
+//  ColorScheme.swift
 //  GPTDetectorSwiftUI
 //
 //  Created by cem on 28.08.2023.

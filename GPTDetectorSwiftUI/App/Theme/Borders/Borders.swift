@@ -1,5 +1,5 @@
 //
-//  Radius.swift
+//  Borders.swift
 //  GPTDetectorSwiftUI
 //
 //  Created by cem on 28.08.2023.
@@ -7,14 +7,14 @@
 
 import Foundation
 
-protocol BorderRadiusProtocol {
+protocol BorderProtocol {
     var regular: CGFloat { get }
 }
 
-struct BorderRadius: BorderRadiusProtocol {
+struct Borders: BorderProtocol {
     let regular: CGFloat = 12
 }
 
 extension CGFloat {
-    static let borderRadius: BorderRadiusProtocol = BorderRadius()
+    static let borderRadius: BorderProtocol = Borders()
 }
