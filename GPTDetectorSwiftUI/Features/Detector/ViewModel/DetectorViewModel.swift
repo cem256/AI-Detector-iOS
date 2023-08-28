@@ -20,7 +20,7 @@ final class DetectorViewModel: DetectorViewModelProtocol {
     }
 
     @Published var userInput: String = ""
-    @Published private(set) var viewStatus: ViewStatus = .initial
+    @Published private(set) var isLoading: Bool = false
     @Published private(set) var detectionResult: DetectionResponse?
     @Published var showingError: Bool = false
 
@@ -41,25 +41,25 @@ final class DetectorViewModel: DetectorViewModelProtocol {
 
     @MainActor
     func detect() async {
-        viewStatus = .loading
+        isLoading = true
         do {
             let result = try await detectorService.detect(input: userInput)
             detectionResult = result
-            viewStatus = .loaded
             /*
              } catch let networkError as NetworkError {
                  errorMessage = networkError.errorMessage
                  viewStatus = .failure
                  showingError = true
-                  */
+             */
         } catch {
             showingError = true
         }
+        isLoading = false
     }
 
     func clearUserInput() {
         userInput = ""
-        viewStatus = .initial
+        isLoading = false
         detectionResult = nil
     }
 }

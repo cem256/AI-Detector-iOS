@@ -23,7 +23,7 @@ struct DetectorView: View {
             HelperTextView(isValidInput: detectorViewModel.isValidInput, inputLength: detectorViewModel.userInputLength)
             AsyncButton(action: {
                 await detectorViewModel.detect()
-            }, isLoading: detectorViewModel.viewStatus == .loading, isDisabled: detectorViewModel.viewStatus == .loading || !detectorViewModel.isValidInput, buttonTitle: "Analyze")
+            }, isLoading: detectorViewModel.isLoading, isDisabled: detectorViewModel.isLoading || !detectorViewModel.isValidInput, buttonTitle: "Analyze")
         }
         .padding()
         .alert(isPresented: $detectorViewModel.showingError) {

@@ -42,22 +42,18 @@ final class NetworkClient: NetworkClientProtocol {
             request.setValue("application/json", forHTTPHeaderField: "Content-Type")
         }
 
-        request.setValue(Env.bearer, forHTTPHeaderField: "Authorization")
+        request.setValue(bearer, forHTTPHeaderField: "Authorization")
 
-        do {
-            let (data, response) = try await URLSession.shared.data(for: request)
+        let (data, response) = try await URLSession.shared.data(for: request)
 
-            guard let httpResponse = response as? HTTPURLResponse else {
-                throw NetworkError.invalidResponse
-            }
-
-            if httpResponse.statusCode != 200 {
-                throw NetworkError.invalidStatusCode(statusCode: httpResponse.statusCode)
-            }
-
-            return data
-        } catch {
-            throw NetworkError.unknownError
+        guard let httpResponse = response as? HTTPURLResponse else {
+            throw NetworkError.invalidResponse
         }
+
+        if httpResponse.statusCode != 200 {
+            throw NetworkError.invalidStatusCode(statusCode: httpResponse.statusCode)
+        }
+
+        return data
     }
 }
