@@ -10,6 +10,7 @@
 		B21AEFE92A9B4B110006EC12 /* GPTDetectorSwiftUIApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = B21AEFE82A9B4B110006EC12 /* GPTDetectorSwiftUIApp.swift */; };
 		B21AEFED2A9B4B120006EC12 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B21AEFEC2A9B4B120006EC12 /* Assets.xcassets */; };
 		B21AEFF02A9B4B120006EC12 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B21AEFEF2A9B4B120006EC12 /* Preview Assets.xcassets */; };
+		B21D0CF12A9D27D600999C72 /* NetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = B21D0CF02A9D27D600999C72 /* NetworkError.swift */; };
 		B26E01ED2A9CACEA00E13B28 /* HeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B26E01EC2A9CACE900E13B28 /* HeaderView.swift */; };
 		B26E01EF2A9CAD2E00E13B28 /* DetectionResutlView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B26E01EE2A9CAD2E00E13B28 /* DetectionResutlView.swift */; };
 		B26E01F22A9CAEBC00E13B28 /* ButtonSizes.swift in Sources */ = {isa = PBXBuildFile; fileRef = B26E01F12A9CAEBC00E13B28 /* ButtonSizes.swift */; };
@@ -27,7 +28,6 @@
 		B2B491CF2A9B5A7300C5C64D /* OnboardingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2B491CE2A9B5A7300C5C64D /* OnboardingViewModel.swift */; };
 		B2B491D12A9B631A00C5C64D /* DetectorViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2B491D02A9B631A00C5C64D /* DetectorViewModel.swift */; };
 		B2B491D32A9B63E200C5C64D /* NetworkClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2B491D22A9B63E200C5C64D /* NetworkClient.swift */; };
-		B2B491D72A9B68F700C5C64D /* Endpoints.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2B491D62A9B68F700C5C64D /* Endpoints.swift */; };
 		B2B491D92A9B6D8E00C5C64D /* DetectorService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2B491D82A9B6D8E00C5C64D /* DetectorService.swift */; };
 		B2B491DC2A9B6EFE00C5C64D /* DetectionResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2B491DB2A9B6EFE00C5C64D /* DetectionResponse.swift */; };
 		B2B491DF2A9B790600C5C64D /* ViewStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2B491DE2A9B790600C5C64D /* ViewStatus.swift */; };
@@ -42,6 +42,7 @@
 		B21AEFE82A9B4B110006EC12 /* GPTDetectorSwiftUIApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GPTDetectorSwiftUIApp.swift; sourceTree = "<group>"; };
 		B21AEFEC2A9B4B120006EC12 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B21AEFEF2A9B4B120006EC12 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		B21D0CF02A9D27D600999C72 /* NetworkError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkError.swift; sourceTree = "<group>"; };
 		B26E01EC2A9CACE900E13B28 /* HeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderView.swift; sourceTree = "<group>"; };
 		B26E01EE2A9CAD2E00E13B28 /* DetectionResutlView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetectionResutlView.swift; sourceTree = "<group>"; };
 		B26E01F12A9CAEBC00E13B28 /* ButtonSizes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonSizes.swift; sourceTree = "<group>"; };
@@ -59,7 +60,6 @@
 		B2B491CE2A9B5A7300C5C64D /* OnboardingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewModel.swift; sourceTree = "<group>"; };
 		B2B491D02A9B631A00C5C64D /* DetectorViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetectorViewModel.swift; sourceTree = "<group>"; };
 		B2B491D22A9B63E200C5C64D /* NetworkClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkClient.swift; sourceTree = "<group>"; };
-		B2B491D62A9B68F700C5C64D /* Endpoints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Endpoints.swift; sourceTree = "<group>"; };
 		B2B491D82A9B6D8E00C5C64D /* DetectorService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetectorService.swift; sourceTree = "<group>"; };
 		B2B491DB2A9B6EFE00C5C64D /* DetectionResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetectionResponse.swift; sourceTree = "<group>"; };
 		B2B491DE2A9B790600C5C64D /* ViewStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewStatus.swift; sourceTree = "<group>"; };
@@ -99,7 +99,6 @@
 		B21AEFE72A9B4B110006EC12 /* GPTDetectorSwiftUI */ = {
 			isa = PBXGroup;
 			children = (
-				B21AEFEC2A9B4B120006EC12 /* Assets.xcassets */,
 				B21D0CEB2A9CFE0500999C72 /* App */,
 				B2B491CA2A9B4E8F00C5C64D /* Core */,
 				B26E01E12A9CAB7F00E13B28 /* Features */,
@@ -296,8 +295,8 @@
 		B2B491D52A9B68E600C5C64D /* Network */ = {
 			isa = PBXGroup;
 			children = (
-				B2B491D62A9B68F700C5C64D /* Endpoints.swift */,
 				B2B491D22A9B63E200C5C64D /* NetworkClient.swift */,
+				B21D0CF02A9D27D600999C72 /* NetworkError.swift */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -335,6 +334,7 @@
 		B2B491E82A9C8F0A00C5C64D /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				B21AEFEC2A9B4B120006EC12 /* Assets.xcassets */,
 				B21AEFEE2A9B4B120006EC12 /* Preview Content */,
 			);
 			path = Resources;
@@ -432,7 +432,6 @@
 				B2B491C72A9B4CE100C5C64D /* SplashView.swift in Sources */,
 				B2B491E22A9B935E00C5C64D /* TextEditorWithPlaceholder.swift in Sources */,
 				B2B491CD2A9B4EA600C5C64D /* CacheClient.swift in Sources */,
-				B2B491D72A9B68F700C5C64D /* Endpoints.swift in Sources */,
 				B26E01ED2A9CACEA00E13B28 /* HeaderView.swift in Sources */,
 				B26E02092A9CC5BA00E13B28 /* AsyncButton.swift in Sources */,
 				B26E01FF2A9CB4ED00E13B28 /* DetectorButtonsView.swift in Sources */,
@@ -443,6 +442,7 @@
 				B2B491D32A9B63E200C5C64D /* NetworkClient.swift in Sources */,
 				B2B491EB2A9C8F3E00C5C64D /* ColorScheme.swift in Sources */,
 				B2B491DF2A9B790600C5C64D /* ViewStatus.swift in Sources */,
+				B21D0CF12A9D27D600999C72 /* NetworkError.swift in Sources */,
 				B26E02072A9CC33000E13B28 /* HelperTextView.swift in Sources */,
 				B2B491D12A9B631A00C5C64D /* DetectorViewModel.swift in Sources */,
 				B26E01F82A9CB15900E13B28 /* Spacing.swift in Sources */,
@@ -579,7 +579,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"GPTDetectorSwiftUI/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "\"GPTDetectorSwiftUI/Resources/Preview Content\"";
 				DEVELOPMENT_TEAM = 3PPSAUCCF4;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -612,7 +612,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"GPTDetectorSwiftUI/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "\"GPTDetectorSwiftUI/Resources/Preview Content\"";
 				DEVELOPMENT_TEAM = 3PPSAUCCF4;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;

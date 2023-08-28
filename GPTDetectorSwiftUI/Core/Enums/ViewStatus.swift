@@ -8,5 +8,5 @@
 import Foundation
 
 enum ViewStatus {
-    case initial, loading, loaded, failure
+    case initial, loading, loaded
 }

@@ -21,19 +21,20 @@ protocol NetworkClientProtocol {
 @MainActor
 final class NetworkClient: NetworkClientProtocol {
     private let baseUrl: String
+    private let bearer: String
 
-    init(baseUrl: String) {
+    init(baseUrl: String, bearer: String) {
         self.baseUrl = baseUrl
+        self.bearer = bearer
     }
 
     func request(path: String, method: HTTPMethod, queryParameters: [URLQueryItem]? = nil, requestBody: Data? = nil) async throws -> Data {
         var urlComponents = URLComponents(string: baseUrl + path)
         urlComponents?.queryItems = queryParameters
 
-        guard let url = urlComponents?.url else { throw URLError(.badURL) }
+        guard let url = urlComponents?.url else { throw NetworkError.badURL }
 
         var request = URLRequest(url: url)
-
         request.httpMethod = method.rawValue
 
         if let requestBody = requestBody {
@@ -43,7 +44,20 @@ final class NetworkClient: NetworkClientProtocol {
 
         request.setValue(Env.bearer, forHTTPHeaderField: "Authorization")
 
-        let (data, _) = try await URLSession.shared.data(for: request)
-        return data
+        do {
+            let (data, response) = try await URLSession.shared.data(for: request)
+
+            guard let httpResponse = response as? HTTPURLResponse else {
+                throw NetworkError.invalidResponse
+            }
+
+            if httpResponse.statusCode != 200 {
+                throw NetworkError.invalidStatusCode(statusCode: httpResponse.statusCode)
+            }
+
+            return data
+        } catch {
+            throw NetworkError.unknownError
+        }
     }
 }

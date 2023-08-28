@@ -22,6 +22,7 @@ final class DetectorViewModel: DetectorViewModelProtocol {
     @Published var userInput: String = ""
     @Published private(set) var viewStatus: ViewStatus = .initial
     @Published private(set) var detectionResult: DetectionResponse?
+    @Published var showingError: Bool = false
 
     var isValidInput: Bool {
         if userInputLength < 250 || userInputLength > 3000 {
@@ -44,11 +45,15 @@ final class DetectorViewModel: DetectorViewModelProtocol {
         do {
             let result = try await detectorService.detect(input: userInput)
             detectionResult = result
-            print(result)
             viewStatus = .loaded
+            /*
+             } catch let networkError as NetworkError {
+                 errorMessage = networkError.errorMessage
+                 viewStatus = .failure
+                 showingError = true
+                  */
         } catch {
-            print(error)
-            viewStatus = .failure
+            showingError = true
         }
     }
 

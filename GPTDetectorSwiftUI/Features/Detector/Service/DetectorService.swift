@@ -13,16 +13,18 @@ protocol DetectorServiceProtocol {
 
 @MainActor
 final class DetectorService: DetectorServiceProtocol {
-    private let networkClient: NetworkClient = .init(baseUrl: Endpoints.baseUrl)
+    private let networkClient: NetworkClient = .init(baseUrl: Env.baseUrl, bearer: Env.bearer)
 
     func detect(input: String) async throws -> DetectionResponse {
         do {
             let requestBody = try JSONEncoder().encode(DetectionRequest(document: input))
-            let data = try await networkClient.request(path: Endpoints.detect, method: .post,requestBody: requestBody)
-            let response: DetectionResponse = try JSONDecoder().decode(DetectionResponse.self, from: data)
+            let data = try await networkClient.request(path: Env.detect, method: .post, requestBody: requestBody)
+            guard let response = try? JSONDecoder().decode(DetectionResponse.self, from: data) else {
+                throw NetworkError.dataParseError
+            }
             return response
         } catch {
-            throw URLError(.badServerResponse)
+            throw NetworkError.unknownError
         }
     }
 }

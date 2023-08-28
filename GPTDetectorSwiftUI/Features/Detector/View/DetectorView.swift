@@ -9,7 +9,7 @@ import SwiftUI
 
 struct DetectorView: View {
     @StateObject private var detectorViewModel = DetectorViewModel(detectorService: DetectorService())
-    
+
     var body: some View {
         VStack(spacing: .spacing.high) {
             HeaderView()
@@ -26,6 +26,9 @@ struct DetectorView: View {
             }, isLoading: detectorViewModel.viewStatus == .loading, isDisabled: detectorViewModel.viewStatus == .loading || !detectorViewModel.isValidInput, buttonTitle: "Analyze")
         }
         .padding()
+        .alert(isPresented: $detectorViewModel.showingError) {
+            Alert(title: Text("Oops, Something Went Wrong"), message: Text("Don't worry, it's not your fault. Our team is on it."))
+        }
     }
 }
 
