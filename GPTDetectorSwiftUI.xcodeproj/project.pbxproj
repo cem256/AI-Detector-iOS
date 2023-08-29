@@ -301,8 +301,8 @@
 		B2B491DA2A9B6EDC00C5C64D /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				B2B491DB2A9B6EFE00C5C64D /* DetectionResponse.swift */,
 				B2B491E32A9BA02000C5C64D /* DetectionRequest.swift */,
+				B2B491DB2A9B6EFE00C5C64D /* DetectionResponse.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -576,7 +576,7 @@
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -609,7 +609,7 @@
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

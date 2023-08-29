@@ -9,7 +9,7 @@ import SwiftUI
 
 struct DetectionResutlView: View {
     let detectionResponse: DetectionResponse?
-    
+
     var body: some View {
         VStack(spacing: .spacing.medium) {
             Text(resultFromResponse.title)
@@ -22,7 +22,7 @@ struct DetectionResutlView: View {
         .background(resultFromResponse.backgroundColor)
         .cornerRadius(.borderRadius.regular)
     }
-    
+
     private var resultFromResponse: (title: String, subtitle: String, backgroundColor: Color) {
         switch detectionResponse?.uClassification {
         case .initial, .none:

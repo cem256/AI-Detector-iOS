@@ -11,10 +11,11 @@ struct SplashView: View {
     @StateObject private var splashViewModel = SplashViewModel(cacheClient: CacheClient())
 
     var body: some View {
-        NavigationView {
-            if splashViewModel.isOnboardingCompleted {
+        NavigationStack {
+            switch splashViewModel.isOnboardingCompleted {
+            case true:
                 DetectorView()
-            } else {
+            case false:
                 OnboardingView(isOnboardingCompleted: $splashViewModel.isOnboardingCompleted)
             }
         }
@@ -26,7 +27,7 @@ struct SplashView: View {
 
 struct SplashView_Previews: PreviewProvider {
     static var previews: some View {
-        NavigationView {
+        NavigationStack {
             SplashView()
         }
     }

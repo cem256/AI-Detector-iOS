@@ -21,16 +21,22 @@ struct OnboardingView: View {
                 isOnboardingCompleted = true
             } label: {
                 Text("Get Started")
+                    .frame(maxWidth: .infinity, minHeight: .buttonSize.regular)
+                    .background(Color.theme.accentColor)
+                    .foregroundColor(Color.theme.secondaryTextColor)
+                    .font(.headline)
+                    .cornerRadius(.borderRadius.regular)
             }
         }
         .padding()
+        .background(Color.theme.backgroundColor)
     }
+}
 
-    struct OnboardingView_Previews: PreviewProvider {
-        static var previews: some View {
-            NavigationView {
-                OnboardingView(isOnboardingCompleted: .constant(false))
-            }
+struct OnboardingView_Previews: PreviewProvider {
+    static var previews: some View {
+        NavigationStack {
+            OnboardingView(isOnboardingCompleted: .constant(false))
         }
     }
 }

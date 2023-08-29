@@ -26,12 +26,14 @@ struct TextEditorWithPlaceholder: View {
             VStack {
                 TextEditor(text: $text)
                     .padding()
-
+                    .scrollContentBackground(.hidden)
+                    .background(Color.theme.backgroundColor)
                     .opacity(text.isEmpty ? 0.5 : 1)
                     .overlay(
                         RoundedRectangle(cornerRadius: .borderRadius.regular)
                             .stroke(isFocused ? Color.theme.accentColor : Color.theme.disabledColor, lineWidth: 2)
                     )
+
                 Spacer()
             }
         }.focused($isFocused)

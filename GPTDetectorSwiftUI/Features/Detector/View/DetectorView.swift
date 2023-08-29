@@ -12,7 +12,7 @@ struct DetectorView: View {
 
     var body: some View {
         VStack(spacing: .spacing.high) {
-            HeaderView()
+            HeaderView(showingInfoSheet: $detectorViewModel.showingInfoSheet)
                 .padding(.horizontal)
             DetectionResutlView(detectionResponse: detectorViewModel.detectionResult)
             ZStack {
@@ -26,6 +26,10 @@ struct DetectorView: View {
             }, isLoading: detectorViewModel.isLoading, isDisabled: detectorViewModel.isLoading || !detectorViewModel.isValidInput, buttonTitle: "Analyze")
         }
         .padding()
+        .background(Color.theme.backgroundColor)
+        .sheet(isPresented: $detectorViewModel.showingInfoSheet, content: {
+            Text("Info View Goes Here")
+        })
         .alert(isPresented: $detectorViewModel.showingError) {
             Alert(title: Text("Oops, Something Went Wrong"), message: Text("Don't worry, it's not your fault. Our team is on it."))
         }
