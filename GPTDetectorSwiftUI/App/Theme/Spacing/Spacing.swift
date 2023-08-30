@@ -11,12 +11,14 @@ protocol SpacingProtocol {
     var low: CGFloat { get }
     var medium: CGFloat { get }
     var high: CGFloat { get }
+    var veryHigh: CGFloat { get }
 }
 
 struct Spacing: SpacingProtocol {
     var low: CGFloat = 4
     var medium: CGFloat = 8
     var high: CGFloat = 12
+    var veryHigh: CGFloat = 24
 }
 
 extension CGFloat {

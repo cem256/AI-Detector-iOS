@@ -35,7 +35,8 @@ struct TextEditorWithPlaceholder: View {
                     )
 
                 Spacer()
-            }
-        }.focused($isFocused)
+
+            }.focused($isFocused)
+        }
     }
 }

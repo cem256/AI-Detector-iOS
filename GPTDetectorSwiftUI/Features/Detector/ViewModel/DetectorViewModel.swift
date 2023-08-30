@@ -23,7 +23,6 @@ final class DetectorViewModel: DetectorViewModelProtocol {
     @Published private(set) var isLoading: Bool = false
     @Published private(set) var detectionResult: DetectionResponse?
     @Published var showingError: Bool = false
-    @Published var showingInfoSheet: Bool = false
 
     var isValidInput: Bool {
         if userInputLength < 250 || userInputLength > 3000 {

@@ -20,10 +20,11 @@
 		B26E01FF2A9CB4ED00E13B28 /* DetectorButtonsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B26E01FE2A9CB4ED00E13B28 /* DetectorButtonsView.swift */; };
 		B26E02072A9CC33000E13B28 /* HelperTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B26E02062A9CC33000E13B28 /* HelperTextView.swift */; };
 		B26E02092A9CC5BA00E13B28 /* AsyncButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B26E02082A9CC5BA00E13B28 /* AsyncButton.swift */; };
-		B2B1D0672A9F527B007D1A2F /* InfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2B1D0662A9F527B007D1A2F /* InfoView.swift */; };
+		B2B1D0672A9F527B007D1A2F /* AboutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2B1D0662A9F527B007D1A2F /* AboutView.swift */; };
 		B2B1D06A2A9F6ED4007D1A2F /* URLConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2B1D0692A9F6ED4007D1A2F /* URLConstants.swift */; };
 		B2B1D06E2A9F7859007D1A2F /* ReviewAppUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2B1D06D2A9F7859007D1A2F /* ReviewAppUtils.swift */; };
 		B2B1D07A2A9F7B14007D1A2F /* BundleUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2B1D0792A9F7B14007D1A2F /* BundleUtils.swift */; };
+		B2B1D07F2A9FD2D7007D1A2F /* ViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2B1D07E2A9FD2D7007D1A2F /* ViewExtensions.swift */; };
 		B2B491C02A9B4B7200C5C64D /* DetectorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2B491BF2A9B4B7200C5C64D /* DetectorView.swift */; };
 		B2B491C52A9B4C8F00C5C64D /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2B491C42A9B4C8F00C5C64D /* OnboardingView.swift */; };
 		B2B491C72A9B4CE100C5C64D /* SplashView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2B491C62A9B4CE100C5C64D /* SplashView.swift */; };
@@ -55,10 +56,11 @@
 		B26E01FE2A9CB4ED00E13B28 /* DetectorButtonsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetectorButtonsView.swift; sourceTree = "<group>"; };
 		B26E02062A9CC33000E13B28 /* HelperTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelperTextView.swift; sourceTree = "<group>"; };
 		B26E02082A9CC5BA00E13B28 /* AsyncButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AsyncButton.swift; sourceTree = "<group>"; };
-		B2B1D0662A9F527B007D1A2F /* InfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoView.swift; sourceTree = "<group>"; };
+		B2B1D0662A9F527B007D1A2F /* AboutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutView.swift; sourceTree = "<group>"; };
 		B2B1D0692A9F6ED4007D1A2F /* URLConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLConstants.swift; sourceTree = "<group>"; };
 		B2B1D06D2A9F7859007D1A2F /* ReviewAppUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewAppUtils.swift; sourceTree = "<group>"; };
 		B2B1D0792A9F7B14007D1A2F /* BundleUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BundleUtils.swift; sourceTree = "<group>"; };
+		B2B1D07E2A9FD2D7007D1A2F /* ViewExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewExtensions.swift; sourceTree = "<group>"; };
 		B2B491BF2A9B4B7200C5C64D /* DetectorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetectorView.swift; sourceTree = "<group>"; };
 		B2B491C42A9B4C8F00C5C64D /* OnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
 		B2B491C62A9B4CE100C5C64D /* SplashView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashView.swift; sourceTree = "<group>"; };
@@ -148,7 +150,7 @@
 		B26E01E12A9CAB7F00E13B28 /* Features */ = {
 			isa = PBXGroup;
 			children = (
-				B2B1D0632A9F5261007D1A2F /* Info */,
+				B2B1D0632A9F5261007D1A2F /* About */,
 				B26E01E42A9CABA200E13B28 /* Detector */,
 				B26E01E32A9CAB9B00E13B28 /* Onboarding */,
 				B26E01E22A9CAB9500E13B28 /* Splash */,
@@ -266,18 +268,18 @@
 			path = Padding;
 			sourceTree = "<group>";
 		};
-		B2B1D0632A9F5261007D1A2F /* Info */ = {
+		B2B1D0632A9F5261007D1A2F /* About */ = {
 			isa = PBXGroup;
 			children = (
 				B2B1D0642A9F5266007D1A2F /* View */,
 			);
-			path = Info;
+			path = About;
 			sourceTree = "<group>";
 		};
 		B2B1D0642A9F5266007D1A2F /* View */ = {
 			isa = PBXGroup;
 			children = (
-				B2B1D0662A9F527B007D1A2F /* InfoView.swift */,
+				B2B1D0662A9F527B007D1A2F /* AboutView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -315,6 +317,14 @@
 			path = Bundle;
 			sourceTree = "<group>";
 		};
+		B2B1D07D2A9FD2C7007D1A2F /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				B2B1D07E2A9FD2D7007D1A2F /* ViewExtensions.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
 		B2B491C12A9B4B8F00C5C64D /* Service */ = {
 			isa = PBXGroup;
 			children = (
@@ -326,8 +336,9 @@
 		B2B491CA2A9B4E8F00C5C64D /* Core */ = {
 			isa = PBXGroup;
 			children = (
-				B2B1D06B2A9F7374007D1A2F /* Utils */,
 				B2B491CB2A9B4E9700C5C64D /* Clients */,
+				B2B1D07D2A9FD2C7007D1A2F /* Extensions */,
+				B2B1D06B2A9F7374007D1A2F /* Utils */,
 			);
 			path = Core;
 			sourceTree = "<group>";
@@ -496,13 +507,14 @@
 				B21D0CF12A9D27D600999C72 /* NetworkError.swift in Sources */,
 				B26E02072A9CC33000E13B28 /* HelperTextView.swift in Sources */,
 				B2B491D12A9B631A00C5C64D /* DetectorViewModel.swift in Sources */,
-				B2B1D0672A9F527B007D1A2F /* InfoView.swift in Sources */,
+				B2B1D0672A9F527B007D1A2F /* AboutView.swift in Sources */,
 				B26E01F82A9CB15900E13B28 /* Spacing.swift in Sources */,
 				B2B491E42A9BA02000C5C64D /* DetectionRequest.swift in Sources */,
 				B2B491D92A9B6D8E00C5C64D /* DetectorService.swift in Sources */,
 				B26E01F22A9CAEBC00E13B28 /* ButtonSizes.swift in Sources */,
 				B26E01EF2A9CAD2E00E13B28 /* DetectionResutlView.swift in Sources */,
 				B2B491CF2A9B5A7300C5C64D /* OnboardingViewModel.swift in Sources */,
+				B2B1D07F2A9FD2D7007D1A2F /* ViewExtensions.swift in Sources */,
 				B21AEFE92A9B4B110006EC12 /* GPTDetectorSwiftUIApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -640,6 +652,7 @@
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -673,6 +686,7 @@
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

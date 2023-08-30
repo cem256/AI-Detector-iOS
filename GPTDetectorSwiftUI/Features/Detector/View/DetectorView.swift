@@ -33,6 +33,9 @@ struct DetectorView: View {
                 Alert(title: Text("Oops, Something Went Wrong"), message: Text("Don't worry, it's not your fault. Our team is on it."))
             }
         }
+        .onTapGesture {
+            self.endTextEditing()
+        }
     }
 }
 

@@ -17,7 +17,7 @@ struct HeaderView: View {
 
             Spacer()
             NavigationLink {
-                InfoView()
+                AboutView()
             } label: {
                 Image(systemName: "info.circle")
                     .font(.title2)

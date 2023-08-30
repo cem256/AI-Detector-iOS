@@ -1,5 +1,5 @@
 //
-//  InfoView.swift
+//  AboutView.swift
 //  GPTDetectorSwiftUI
 //
 //  Created by cem on 30.08.2023.
@@ -8,7 +8,7 @@
 import StoreKit
 import SwiftUI
 
-struct InfoView: View {
+struct AboutView: View {
     var body: some View {
         List {
             AppSection()
@@ -18,7 +18,7 @@ struct InfoView: View {
         .background(Color.theme.backgroundColor)
         .scrollContentBackground(.hidden)
         .listStyle(.grouped)
-        .navigationTitle("Info")
+        .navigationTitle("About")
         .navigationBarTitleDisplayMode(.inline)
     }
 }
@@ -91,10 +91,10 @@ private struct FAQSection: View {
     }
 }
 
-struct InfoView_Previews: PreviewProvider {
+struct AboutView_Previews: PreviewProvider {
     static var previews: some View {
         NavigationStack {
-            InfoView()
+            AboutView()
         }
     }
 }
