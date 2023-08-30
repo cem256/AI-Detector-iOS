@@ -8,8 +8,6 @@
 import SwiftUI
 
 struct HeaderView: View {
-    @Binding var showingInfoSheet: Bool
-
     var body: some View {
         HStack {
             Spacer()
@@ -18,8 +16,8 @@ struct HeaderView: View {
                 .fontWeight(.medium)
 
             Spacer()
-            Button {
-                showingInfoSheet = true
+            NavigationLink {
+                InfoView()
             } label: {
                 Image(systemName: "info.circle")
                     .font(.title2)
@@ -30,6 +28,6 @@ struct HeaderView: View {
 
 struct HeaderView_Previews: PreviewProvider {
     static var previews: some View {
-        HeaderView(showingInfoSheet: .constant(true))
+        HeaderView()
     }
 }

@@ -12,24 +12,27 @@ struct OnboardingView: View {
     @Binding var isOnboardingCompleted: Bool
 
     var body: some View {
-        VStack {
-            Spacer()
-            Text("OnboardingView")
-            Spacer()
-            Button {
-                onboardingViewModel.completeOnboarding()
-                isOnboardingCompleted = true
-            } label: {
-                Text("Get Started")
-                    .frame(maxWidth: .infinity, minHeight: .buttonSize.regular)
-                    .background(Color.theme.accentColor)
-                    .foregroundColor(Color.theme.secondaryTextColor)
-                    .font(.headline)
-                    .cornerRadius(.borderRadius.regular)
+        ZStack {
+            Color.theme.backgroundColor
+                .ignoresSafeArea()
+            VStack {
+                Spacer()
+                Text("OnboardingView")
+                Spacer()
+                Button {
+                    onboardingViewModel.completeOnboarding()
+                    isOnboardingCompleted = true
+                } label: {
+                    Text("Get Started")
+                        .frame(maxWidth: .infinity, minHeight: .buttonSize.regular)
+                        .background(Color.theme.accentColor)
+                        .foregroundColor(Color.theme.secondaryTextColor)
+                        .font(.headline)
+                        .cornerRadius(.borderRadius.regular)
+                }
             }
+            .padding()
         }
-        .padding()
-        .background(Color.theme.backgroundColor)
     }
 }
 
