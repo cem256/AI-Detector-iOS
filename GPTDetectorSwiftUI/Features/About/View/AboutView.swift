@@ -31,7 +31,7 @@ private struct AppSection: View {
                     Image("LaunchScreen")
                         .resizable()
                         .scaledToFit()
-                        .frame(width: 100, height: 100)
+                        .frame(width: .imageSize.xLarge, height: .imageSize.xLarge)
                         .clipShape(RoundedRectangle(cornerRadius: .borderRadius.regular))
                     Text("Version \(BundleUtils.appVersion)")
                         .font(.footnote)
