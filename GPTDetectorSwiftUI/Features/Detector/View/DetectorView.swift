@@ -5,8 +5,8 @@
 //  Created by cem on 27.08.2023.
 //
 
-import SwiftUI
 import Factory
+import SwiftUI
 
 struct DetectorView: View {
     @StateObject private var detectorViewModel: DetectorViewModel
@@ -25,7 +25,7 @@ struct DetectorView: View {
                 DetectionResutlView(detectionResponse: detectorViewModel.detectionResult)
                 ZStack {
                     TextEditorWithPlaceholder(text: $detectorViewModel.userInput, placeholder: "Paste text or type here...")
-                    TextEditorButtons(clearAction: detectorViewModel.clearUserInput)
+                    TextEditorButtons(clearAction: detectorViewModel.clearUserInput, userInput: $detectorViewModel.userInput)
                 }
                 HelperTextView(isValidInput: detectorViewModel.isValidInput, inputLength: detectorViewModel.userInputLength)
                 AsyncButton(action: {
