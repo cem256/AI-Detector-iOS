@@ -7,11 +7,7 @@
 
 import Foundation
 
-protocol SplashViewModelProtocol: ObservableObject {
-    func checkIsOnboardingCompleted()
-}
-
-final class SplashViewModel: SplashViewModelProtocol {
+final class SplashViewModel: ObservableObject {
     private let cacheClient: CacheClientProtocol
 
     init(cacheClient: CacheClientProtocol) {

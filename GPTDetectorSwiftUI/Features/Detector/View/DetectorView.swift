@@ -6,9 +6,14 @@
 //
 
 import SwiftUI
+import Factory
 
 struct DetectorView: View {
-    @StateObject private var detectorViewModel = DetectorViewModel(detectorService: DetectorService())
+    @StateObject private var detectorViewModel: DetectorViewModel
+
+    init(detectorViewModel: DetectorViewModel) {
+        _detectorViewModel = StateObject(wrappedValue: detectorViewModel)
+    }
 
     var body: some View {
         ZStack {
@@ -41,7 +46,7 @@ struct DetectorView: View {
 struct DetectorView_Previews: PreviewProvider {
     static var previews: some View {
         NavigationStack {
-            DetectorView()
+            DetectorView(detectorViewModel: Container.shared.detectorViewModel())
         }
     }
 }

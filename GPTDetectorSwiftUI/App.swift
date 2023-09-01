@@ -6,12 +6,13 @@
 //
 
 import SwiftUI
+import Factory
 
 @main
 struct GPTDetectorSwiftUIApp: App {
     var body: some Scene {
         WindowGroup {
-            SplashView()
+            SplashView(splashViewModel: Container.shared.splashViewModel())
         }
     }
 }

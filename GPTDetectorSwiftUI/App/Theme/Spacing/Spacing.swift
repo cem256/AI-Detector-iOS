@@ -7,14 +7,7 @@
 
 import Foundation
 
-protocol SpacingProtocol {
-    var low: CGFloat { get }
-    var medium: CGFloat { get }
-    var high: CGFloat { get }
-    var veryHigh: CGFloat { get }
-}
-
-struct Spacing: SpacingProtocol {
+struct Spacing {
     var low: CGFloat = 4
     var medium: CGFloat = 8
     var high: CGFloat = 12
@@ -22,5 +15,5 @@ struct Spacing: SpacingProtocol {
 }
 
 extension CGFloat {
-    static let spacing: SpacingProtocol = Spacing()
+    static let spacing: Spacing = .init()
 }

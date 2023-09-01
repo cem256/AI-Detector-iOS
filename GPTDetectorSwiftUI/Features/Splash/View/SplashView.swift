@@ -5,18 +5,23 @@
 //  Created by cem on 27.08.2023.
 //
 
+import Factory
 import SwiftUI
 
 struct SplashView: View {
-    @StateObject private var splashViewModel = SplashViewModel(cacheClient: CacheClient())
+    @StateObject private var splashViewModel: SplashViewModel
+
+    init(splashViewModel: SplashViewModel) {
+        _splashViewModel = StateObject(wrappedValue: splashViewModel)
+    }
 
     var body: some View {
         NavigationStack {
             switch splashViewModel.isOnboardingCompleted {
             case true:
-                DetectorView()
+                DetectorView(detectorViewModel: Container.shared.detectorViewModel())
             case false:
-                OnboardingView(isOnboardingCompleted: $splashViewModel.isOnboardingCompleted)
+                OnboardingView(onboardingViewModel: Container.shared.onboardingViewModel(), isOnboardingCompleted: $splashViewModel.isOnboardingCompleted)
             }
         }
         .onAppear {
@@ -28,7 +33,7 @@ struct SplashView: View {
 struct SplashView_Previews: PreviewProvider {
     static var previews: some View {
         NavigationStack {
-            SplashView()
+            SplashView(splashViewModel: Container.shared.splashViewModel())
         }
     }
 }

@@ -5,11 +5,17 @@
 //  Created by cem on 27.08.2023.
 //
 
+import Factory
 import SwiftUI
 
 struct OnboardingView: View {
-    @StateObject private var onboardingViewModel = OnboardingViewModel(cacheClient: CacheClient())
+    @StateObject private var onboardingViewModel: OnboardingViewModel
     @Binding var isOnboardingCompleted: Bool
+
+    init(onboardingViewModel: OnboardingViewModel, isOnboardingCompleted: Binding<Bool>) {
+        self._isOnboardingCompleted = isOnboardingCompleted
+        _onboardingViewModel = StateObject(wrappedValue: onboardingViewModel)
+    }
 
     var body: some View {
         ZStack {
@@ -92,7 +98,7 @@ private struct GetStartedButton: View {
 struct OnboardingView_Previews: PreviewProvider {
     static var previews: some View {
         NavigationStack {
-            OnboardingView(isOnboardingCompleted: .constant(false))
+            OnboardingView(onboardingViewModel: Container.shared.onboardingViewModel(), isOnboardingCompleted: .constant(false))
         }
     }
 }

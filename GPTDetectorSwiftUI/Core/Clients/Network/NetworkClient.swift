@@ -18,7 +18,6 @@ protocol NetworkClientProtocol {
     func request(path: String, method: HTTPMethod, queryParameters: [URLQueryItem]?, requestBody: Data?) async throws -> Data
 }
 
-@MainActor
 final class NetworkClient: NetworkClientProtocol {
     private let baseUrl: String
     private let bearer: String

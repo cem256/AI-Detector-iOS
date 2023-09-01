@@ -7,11 +7,7 @@
 
 import Foundation
 
-protocol OnboardingViewModelProtocol: ObservableObject {
-    func completeOnboarding()
-}
-
-final class OnboardingViewModel: OnboardingViewModelProtocol {
+final class OnboardingViewModel: ObservableObject {
     private let cacheClient: CacheClientProtocol
 
     init(cacheClient: CacheClientProtocol) {

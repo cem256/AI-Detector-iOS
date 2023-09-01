@@ -7,10 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		B21AEFE92A9B4B110006EC12 /* GPTDetectorSwiftUIApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = B21AEFE82A9B4B110006EC12 /* GPTDetectorSwiftUIApp.swift */; };
+		B21AEFE92A9B4B110006EC12 /* App.swift in Sources */ = {isa = PBXBuildFile; fileRef = B21AEFE82A9B4B110006EC12 /* App.swift */; };
 		B21AEFED2A9B4B120006EC12 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B21AEFEC2A9B4B120006EC12 /* Assets.xcassets */; };
 		B21AEFF02A9B4B120006EC12 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B21AEFEF2A9B4B120006EC12 /* Preview Assets.xcassets */; };
 		B21D0CF12A9D27D600999C72 /* NetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = B21D0CF02A9D27D600999C72 /* NetworkError.swift */; };
+		B222AD022AA2077100DA21DA /* Factory in Frameworks */ = {isa = PBXBuildFile; productRef = B222AD012AA2077100DA21DA /* Factory */; };
+		B222AD042AA207C800DA21DA /* Locator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B222AD032AA207C800DA21DA /* Locator.swift */; };
 		B26E01ED2A9CACEA00E13B28 /* HeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B26E01EC2A9CACE900E13B28 /* HeaderView.swift */; };
 		B26E01EF2A9CAD2E00E13B28 /* DetectionResutlView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B26E01EE2A9CAD2E00E13B28 /* DetectionResutlView.swift */; };
 		B26E01F22A9CAEBC00E13B28 /* ButtonSizes.swift in Sources */ = {isa = PBXBuildFile; fileRef = B26E01F12A9CAEBC00E13B28 /* ButtonSizes.swift */; };
@@ -44,10 +46,11 @@
 
 /* Begin PBXFileReference section */
 		B21AEFE52A9B4B110006EC12 /* GPTDetectorSwiftUI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GPTDetectorSwiftUI.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		B21AEFE82A9B4B110006EC12 /* GPTDetectorSwiftUIApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GPTDetectorSwiftUIApp.swift; sourceTree = "<group>"; };
+		B21AEFE82A9B4B110006EC12 /* App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = App.swift; sourceTree = "<group>"; };
 		B21AEFEC2A9B4B120006EC12 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B21AEFEF2A9B4B120006EC12 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		B21D0CF02A9D27D600999C72 /* NetworkError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkError.swift; sourceTree = "<group>"; };
+		B222AD032AA207C800DA21DA /* Locator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Locator.swift; sourceTree = "<group>"; };
 		B26E01EC2A9CACE900E13B28 /* HeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderView.swift; sourceTree = "<group>"; };
 		B26E01EE2A9CAD2E00E13B28 /* DetectionResutlView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetectionResutlView.swift; sourceTree = "<group>"; };
 		B26E01F12A9CAEBC00E13B28 /* ButtonSizes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonSizes.swift; sourceTree = "<group>"; };
@@ -84,6 +87,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B222AD022AA2077100DA21DA /* Factory in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -109,6 +113,8 @@
 		B21AEFE72A9B4B110006EC12 /* GPTDetectorSwiftUI */ = {
 			isa = PBXGroup;
 			children = (
+				B21AEFE82A9B4B110006EC12 /* App.swift */,
+				B222AD032AA207C800DA21DA /* Locator.swift */,
 				B21D0CEB2A9CFE0500999C72 /* App */,
 				B2B491CA2A9B4E8F00C5C64D /* Core */,
 				B26E01E12A9CAB7F00E13B28 /* Features */,
@@ -129,7 +135,6 @@
 		B21D0CEB2A9CFE0500999C72 /* App */ = {
 			isa = PBXGroup;
 			children = (
-				B21AEFE82A9B4B110006EC12 /* GPTDetectorSwiftUIApp.swift */,
 				B2B1D0682A9F6EB6007D1A2F /* Constants */,
 				B2DAF61A2A9CF74900ED40EE /* Env */,
 				B21D0CEC2A9CFEBC00999C72 /* Theme */,
@@ -435,6 +440,9 @@
 			dependencies = (
 			);
 			name = GPTDetectorSwiftUI;
+			packageProductDependencies = (
+				B222AD012AA2077100DA21DA /* Factory */,
+			);
 			productName = GPTDetectorSwiftUI;
 			productReference = B21AEFE52A9B4B110006EC12 /* GPTDetectorSwiftUI.app */;
 			productType = "com.apple.product-type.application";
@@ -463,6 +471,9 @@
 				Base,
 			);
 			mainGroup = B21AEFDC2A9B4B110006EC12;
+			packageReferences = (
+				B222AD002AA2077100DA21DA /* XCRemoteSwiftPackageReference "Factory" */,
+			);
 			productRefGroup = B21AEFE62A9B4B110006EC12 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -517,9 +528,10 @@
 				B2B491D92A9B6D8E00C5C64D /* DetectorService.swift in Sources */,
 				B26E01F22A9CAEBC00E13B28 /* ButtonSizes.swift in Sources */,
 				B26E01EF2A9CAD2E00E13B28 /* DetectionResutlView.swift in Sources */,
+				B222AD042AA207C800DA21DA /* Locator.swift in Sources */,
 				B2B491CF2A9B5A7300C5C64D /* OnboardingViewModel.swift in Sources */,
 				B2B1D07F2A9FD2D7007D1A2F /* ViewExtensions.swift in Sources */,
-				B21AEFE92A9B4B110006EC12 /* GPTDetectorSwiftUIApp.swift in Sources */,
+				B21AEFE92A9B4B110006EC12 /* App.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -730,6 +742,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		B222AD002AA2077100DA21DA /* XCRemoteSwiftPackageReference "Factory" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/hmlongco/Factory.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		B222AD012AA2077100DA21DA /* Factory */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = B222AD002AA2077100DA21DA /* XCRemoteSwiftPackageReference "Factory" */;
+			productName = Factory;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = B21AEFDD2A9B4B110006EC12 /* Project object */;
 }

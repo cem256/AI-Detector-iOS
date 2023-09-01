@@ -7,18 +7,12 @@
 
 import Foundation
 
-protocol ButtonSizesProtocol {
-    var small: CGFloat { get }
-    var regular: CGFloat { get }
-    var large: CGFloat { get }
-}
-
-struct ButtonSizes: ButtonSizesProtocol {
+struct ButtonSizes {
     let small: CGFloat = 44
     let regular: CGFloat = 55
     let large: CGFloat = 66
 }
 
 extension CGFloat {
-    static let buttonSize: ButtonSizesProtocol = ButtonSizes()
+    static let buttonSize: ButtonSizes = .init()
 }

@@ -7,15 +7,7 @@
 
 import Foundation
 
-protocol ImageSizesProtocol {
-    var small: CGFloat { get }
-    var regular: CGFloat { get }
-    var large: CGFloat { get }
-    var xLarge: CGFloat { get }
-    var xxLarge: CGFloat { get }
-}
-
-struct ImageSizes: ImageSizesProtocol {
+struct ImageSizes {
     let small: CGFloat = 32
     let regular: CGFloat = 40
     let large: CGFloat = 48
@@ -24,5 +16,5 @@ struct ImageSizes: ImageSizesProtocol {
 }
 
 extension CGFloat {
-    static let imageSize: ImageSizesProtocol = ImageSizes()
+    static let imageSize: ImageSizes = .init()
 }

@@ -7,12 +7,7 @@
 
 import Foundation
 
-protocol DetectorViewModelProtocol: ObservableObject {
-    func detect() async
-    func clearUserInput()
-}
-
-final class DetectorViewModel: DetectorViewModelProtocol {
+final class DetectorViewModel: ObservableObject {
     private let detectorService: DetectorServiceProtocol
 
     init(detectorService: DetectorServiceProtocol) {
