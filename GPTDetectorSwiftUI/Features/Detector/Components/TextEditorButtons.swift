@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct DetectorButtonsView: View {
+struct TextEditorButtons: View {
     let clearAction: () -> Void
 
     var body: some View {
@@ -19,18 +19,8 @@ struct DetectorButtonsView: View {
                 } label: {
                     Image(systemName: "xmark")
                 }
-            }
+            }.padding()
             Spacer()
-            HStack(spacing: .spacing.medium) {
-                Spacer()
-                Button {} label: {
-                    Image(systemName: "photo")
-                }
-
-                Button {} label: {
-                    Image(systemName: "camera")
-                }
-            }
         }
         .font(.title2)
     }

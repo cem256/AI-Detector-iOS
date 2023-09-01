@@ -17,7 +17,7 @@
 		B26E01F52A9CB07900E13B28 /* Borders.swift in Sources */ = {isa = PBXBuildFile; fileRef = B26E01F42A9CB07900E13B28 /* Borders.swift */; };
 		B26E01F82A9CB15900E13B28 /* Spacing.swift in Sources */ = {isa = PBXBuildFile; fileRef = B26E01F72A9CB15900E13B28 /* Spacing.swift */; };
 		B26E01FB2A9CB28500E13B28 /* Padding.swift in Sources */ = {isa = PBXBuildFile; fileRef = B26E01FA2A9CB28500E13B28 /* Padding.swift */; };
-		B26E01FF2A9CB4ED00E13B28 /* DetectorButtonsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B26E01FE2A9CB4ED00E13B28 /* DetectorButtonsView.swift */; };
+		B26E01FF2A9CB4ED00E13B28 /* TextEditorButtons.swift in Sources */ = {isa = PBXBuildFile; fileRef = B26E01FE2A9CB4ED00E13B28 /* TextEditorButtons.swift */; };
 		B26E02072A9CC33000E13B28 /* HelperTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B26E02062A9CC33000E13B28 /* HelperTextView.swift */; };
 		B26E02092A9CC5BA00E13B28 /* AsyncButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B26E02082A9CC5BA00E13B28 /* AsyncButton.swift */; };
 		B2B1D0672A9F527B007D1A2F /* AboutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2B1D0662A9F527B007D1A2F /* AboutView.swift */; };
@@ -54,7 +54,7 @@
 		B26E01F42A9CB07900E13B28 /* Borders.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Borders.swift; sourceTree = "<group>"; };
 		B26E01F72A9CB15900E13B28 /* Spacing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Spacing.swift; sourceTree = "<group>"; };
 		B26E01FA2A9CB28500E13B28 /* Padding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Padding.swift; sourceTree = "<group>"; };
-		B26E01FE2A9CB4ED00E13B28 /* DetectorButtonsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetectorButtonsView.swift; sourceTree = "<group>"; };
+		B26E01FE2A9CB4ED00E13B28 /* TextEditorButtons.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextEditorButtons.swift; sourceTree = "<group>"; };
 		B26E02062A9CC33000E13B28 /* HelperTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelperTextView.swift; sourceTree = "<group>"; };
 		B26E02082A9CC5BA00E13B28 /* AsyncButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AsyncButton.swift; sourceTree = "<group>"; };
 		B2B1D0662A9F527B007D1A2F /* AboutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutView.swift; sourceTree = "<group>"; };
@@ -386,9 +386,9 @@
 			children = (
 				B26E02082A9CC5BA00E13B28 /* AsyncButton.swift */,
 				B26E01EE2A9CAD2E00E13B28 /* DetectionResutlView.swift */,
-				B26E01FE2A9CB4ED00E13B28 /* DetectorButtonsView.swift */,
 				B26E01EC2A9CACE900E13B28 /* HeaderView.swift */,
 				B26E02062A9CC33000E13B28 /* HelperTextView.swift */,
+				B26E01FE2A9CB4ED00E13B28 /* TextEditorButtons.swift */,
 				B2B491E12A9B935E00C5C64D /* TextEditorWithPlaceholder.swift */,
 			);
 			path = Components;
@@ -499,7 +499,7 @@
 				B26E01ED2A9CACEA00E13B28 /* HeaderView.swift in Sources */,
 				B26E02092A9CC5BA00E13B28 /* AsyncButton.swift in Sources */,
 				B2B1D07A2A9F7B14007D1A2F /* BundleUtils.swift in Sources */,
-				B26E01FF2A9CB4ED00E13B28 /* DetectorButtonsView.swift in Sources */,
+				B26E01FF2A9CB4ED00E13B28 /* TextEditorButtons.swift in Sources */,
 				B26E01F52A9CB07900E13B28 /* Borders.swift in Sources */,
 				B2B1D06E2A9F7859007D1A2F /* ReviewAppUtils.swift in Sources */,
 				B2B491C52A9B4C8F00C5C64D /* OnboardingView.swift in Sources */,

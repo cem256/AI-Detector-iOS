@@ -20,8 +20,7 @@ struct DetectorView: View {
                 DetectionResutlView(detectionResponse: detectorViewModel.detectionResult)
                 ZStack {
                     TextEditorWithPlaceholder(text: $detectorViewModel.userInput, placeholder: "Paste text or type here...")
-                    DetectorButtonsView(clearAction: detectorViewModel.clearUserInput)
-                        .padding()
+                    TextEditorButtons(clearAction: detectorViewModel.clearUserInput)
                 }
                 HelperTextView(isValidInput: detectorViewModel.isValidInput, inputLength: detectorViewModel.userInputLength)
                 AsyncButton(action: {
