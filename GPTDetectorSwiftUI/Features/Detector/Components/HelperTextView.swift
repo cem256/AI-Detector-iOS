@@ -10,17 +10,13 @@ import SwiftUI
 struct HelperTextView: View {
     let isValidInput: Bool
     let inputLength: Int
-    private let minCharCount = 250
-    private let maxCharCount = 3000
 
     var body: some View {
         if !isValidInput {
-            let isBelowMin = inputLength < minCharCount
-
             HStack {
-                Text(isBelowMin ? "Enter at least \(minCharCount) characters." : "Enter at most \(maxCharCount) characters.")
+                Text(UserInputConstants.isShortInput(inputLength: inputLength) ? "Enter at least \(UserInputConstants.minInputLength) characters." : "Enter at most \(UserInputConstants.maxInputLength) characters.")
                 Spacer()
-                Text("\(inputLength)/\(isBelowMin ? minCharCount : maxCharCount)")
+                Text("\(inputLength)/\(UserInputConstants.isShortInput(inputLength: inputLength) ? UserInputConstants.minInputLength : UserInputConstants.maxInputLength)")
             }
             .font(.subheadline)
             .foregroundColor(.gray)

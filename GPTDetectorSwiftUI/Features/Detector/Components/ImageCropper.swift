@@ -10,44 +10,44 @@ import SwiftUI
 import UIKit
 
 struct ImageCropper: UIViewControllerRepresentable {
-    @Binding var image: UIImage?
+    let imageToCrop: UIImage
+    @Binding var croppedImage: UIImage
     @Binding var showingScreenCover: Bool
     @Binding var showingImageCropper: Bool
 
     func makeUIViewController(context: Context) -> CropViewController {
-        let img = image ?? UIImage()
-        let cropper = CropViewController(image: img)
+        let cropper = CropViewController(image: imageToCrop)
         cropper.aspectRatioLockEnabled = false
         cropper.aspectRatioPickerButtonHidden = true
         cropper.cropView.backgroundColor = UIColor(Color.theme.backgroundColor)
         cropper.delegate = context.coordinator
-        
+
         return cropper
     }
-    
+
     func updateUIViewController(_ uiViewController: CropViewController, context: Context) {}
-    
+
     func makeCoordinator() -> Coordinator {
-        return Coordinator(image: $image, showingScreenCover: $showingScreenCover, showingImageCropper: $showingImageCropper)
+        return Coordinator(croppedImage: $croppedImage, showingScreenCover: $showingScreenCover, showingImageCropper: $showingImageCropper)
     }
-  
+
     final class Coordinator: NSObject, CropViewControllerDelegate {
-        @Binding var image: UIImage?
+        @Binding var croppedImage: UIImage
         @Binding var showingScreenCover: Bool
         @Binding var showingImageCropper: Bool
-    
-        init(image: Binding<UIImage?>, showingScreenCover: Binding<Bool>, showingImageCropper: Binding<Bool>) {
-            self._image = image
+
+        init(croppedImage: Binding<UIImage>, showingScreenCover: Binding<Bool>, showingImageCropper: Binding<Bool>) {
+            self._croppedImage = croppedImage
             self._showingScreenCover = showingScreenCover
             self._showingImageCropper = showingImageCropper
         }
-        
+
         func cropViewController(_ cropViewController: CropViewController, didCropToImage image: UIImage, withRect cropRect: CGRect, angle: Int) {
-            self.image = image
+            croppedImage = image
             showingImageCropper = false
             showingScreenCover = false
         }
-    
+
         func cropViewController(_ cropViewController: CropViewController, didFinishCancelled cancelled: Bool) {
             showingImageCropper = false
             showingScreenCover = false

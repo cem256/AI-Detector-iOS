@@ -5,7 +5,6 @@
 //  Created by cem on 2.09.2023.
 //
 
-import CropViewController
 import SwiftUI
 import UniformTypeIdentifiers
 
@@ -13,18 +12,18 @@ struct ImagePicker: UIViewControllerRepresentable {
     @Binding var image: UIImage?
     @Binding var showingScreenCover: Bool
     @Binding var showingImageCropper: Bool
-    let source: UIImagePickerController.SourceType
+    let imagePickerSource: UIImagePickerController.SourceType
 
-    init(image: Binding<UIImage?>, showingScreenCover: Binding<Bool>, showingImageCropper: Binding<Bool>, source: UIImagePickerController.SourceType) {
+    init(image: Binding<UIImage?>, showingScreenCover: Binding<Bool>, showingImageCropper: Binding<Bool>, imagePickerSource: UIImagePickerController.SourceType) {
         self._image = image
         self._showingScreenCover = showingScreenCover
         self._showingImageCropper = showingImageCropper
-        self.source = source
+        self.imagePickerSource = imagePickerSource
     }
 
     func makeUIViewController(context: Context) -> UIImagePickerController {
         let picker = UIImagePickerController()
-        picker.sourceType = source
+        picker.sourceType = imagePickerSource
         picker.mediaTypes = [UTType.image.identifier]
         picker.allowsEditing = false
         picker.delegate = context.coordinator

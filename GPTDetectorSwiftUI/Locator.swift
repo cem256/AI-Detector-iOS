@@ -20,7 +20,7 @@ extension Container {
     }
 
     var detectorViewModel: Factory<DetectorViewModel> {
-        Factory(self) { DetectorViewModel(detectorService: self.detectorService()) }
+        Factory(self) { DetectorViewModel(detectorService: self.detectorService(), permissionHandlerClient: self.permissionHandlerClient(), textRecognizerClient: self.textRecognizerClient()) }
     }
 
     // MARK: Services
@@ -37,5 +37,13 @@ extension Container {
 
     private var networkClient: Factory<NetworkClientProtocol> {
         Factory(self) { NetworkClient(baseUrl: Env.baseUrl, bearer: Env.bearer) }
+    }
+
+    private var permissionHandlerClient: Factory<PermissionHandlerProtocol> {
+        Factory(self) { PermissionHandlerClient() }
+    }
+
+    private var textRecognizerClient: Factory<TextRecognizerProtocol> {
+        Factory(self) { TextRecognizerClient() }
     }
 }

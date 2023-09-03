@@ -6,12 +6,17 @@
 //
 
 import Foundation
+import SwiftUI
 
 final class DetectorViewModel: ObservableObject {
     private let detectorService: DetectorServiceProtocol
+    private let permissionHandlerClient: PermissionHandlerProtocol
+    private let textRecognizerClient: TextRecognizerProtocol
 
-    init(detectorService: DetectorServiceProtocol) {
+    init(detectorService: DetectorServiceProtocol, permissionHandlerClient: PermissionHandlerProtocol, textRecognizerClient: TextRecognizerProtocol) {
         self.detectorService = detectorService
+        self.permissionHandlerClient = permissionHandlerClient
+        self.textRecognizerClient = textRecognizerClient
     }
 
     @Published var userInput: String = ""
@@ -19,8 +24,15 @@ final class DetectorViewModel: ObservableObject {
     @Published private(set) var detectionResult: DetectionResponse?
     @Published var showingError: Bool = false
 
+    @Published var selectedImage: UIImage? = nil
+    @Published var croppedImage: UIImage = .init()
+    @Published private(set) var imagePickerSource: UIImagePickerController.SourceType = .photoLibrary
+    @Published var showingScreenCover: Bool = false
+    @Published var showingImageCropper: Bool = false
+    @Published var showingPermissionAlert: Bool = false
+
     var isValidInput: Bool {
-        if userInputLength < 250 || userInputLength > 3000 {
+        if userInputLength < UserInputConstants.minInputLength || userInputLength > UserInputConstants.maxInputLength {
             return false
         }
         return true
@@ -46,15 +58,43 @@ final class DetectorViewModel: ObservableObject {
                  viewStatus = .failure
                  showingError = true
              */
-        } catch {
+        }
+        catch {
             showingError = true
         }
         isLoading = false
     }
 
-    func clearUserInput() {
+    func onClearButtonTapped() {
         userInput = ""
         isLoading = false
         detectionResult = nil
+    }
+
+    func onPhotoLibraryButtonTapped() {
+        imagePickerSource = .photoLibrary
+        showingScreenCover = true
+    }
+
+    @MainActor
+    func onCameraButtonTapped() async {
+        imagePickerSource = .camera
+        if !permissionHandlerClient.hasCameraPermission && permissionHandlerClient.hasCameraPermissionDenied {
+            showingPermissionAlert = true
+        }
+        else if !permissionHandlerClient.hasCameraPermission {
+            await permissionHandlerClient.requestCameraPermission()
+            if permissionHandlerClient.hasCameraPermission {
+                showingScreenCover = true
+            }
+        }
+        else {
+            showingScreenCover = true
+        }
+    }
+
+    func performOcrFromImage() {
+        guard let cgImage = croppedImage.cgImage else { return }
+        userInput = textRecognizerClient.recogizeText(from: cgImage)
     }
 }

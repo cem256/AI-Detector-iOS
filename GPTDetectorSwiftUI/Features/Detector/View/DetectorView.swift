@@ -9,10 +9,10 @@ import Factory
 import SwiftUI
 
 struct DetectorView: View {
-    @StateObject private var detectorViewModel: DetectorViewModel
+    @StateObject private var vm: DetectorViewModel
 
     init(detectorViewModel: DetectorViewModel) {
-        _detectorViewModel = StateObject(wrappedValue: detectorViewModel)
+        _vm = StateObject(wrappedValue: detectorViewModel)
     }
 
     var body: some View {
@@ -22,19 +22,43 @@ struct DetectorView: View {
             VStack(spacing: .spacing.high) {
                 HeaderView()
                     .padding(.horizontal)
-                DetectionResutlView(detectionResponse: detectorViewModel.detectionResult)
+                DetectionResutlView(detectionResponse: vm.detectionResult)
                 ZStack {
-                    TextEditorWithPlaceholder(text: $detectorViewModel.userInput, placeholder: "Paste text or type here...")
-                    TextEditorButtons(onClearButtonTapped: detectorViewModel.clearUserInput, userInput: $detectorViewModel.userInput)
+                    TextEditorWithPlaceholder(text: $vm.userInput, placeholder: "Paste text or type here...")
+                    TextEditorButtons(onClearButtonTapped: vm.onClearButtonTapped, onPhotoLibraryButtonTapped: vm.onPhotoLibraryButtonTapped, onCameraButtonTapped: vm.onCameraButtonTapped)
                 }
-                HelperTextView(isValidInput: detectorViewModel.isValidInput, inputLength: detectorViewModel.userInputLength)
+                HelperTextView(isValidInput: vm.isValidInput, inputLength: vm.userInputLength)
                 AsyncButton(action: {
-                    await detectorViewModel.detect()
-                }, isLoading: detectorViewModel.isLoading, isDisabled: detectorViewModel.isLoading || !detectorViewModel.isValidInput, buttonTitle: "Analyze")
+                    await vm.detect()
+                }, isLoading: vm.isLoading, isDisabled: vm.isLoading || !vm.isValidInput, buttonTitle: "Analyze")
             }
             .padding()
-            .alert(isPresented: $detectorViewModel.showingError) {
+            .alert(isPresented: $vm.showingError) {
                 Alert(title: Text("Oops, Something Went Wrong"), message: Text("Don't worry, it's not your fault. Our team is on it."))
+            }
+            .alert(isPresented: $vm.showingPermissionAlert) {
+                Alert(
+                    title: Text("Camera Permission Required"),
+                    message: Text("Please grant permission to access the camera in settings."),
+                    primaryButton: .default(Text("Open Settings"), action: {
+                        if let settingsURL = URL(string: UIApplication.openSettingsURLString) {
+                            UIApplication.shared.open(settingsURL)
+                        }
+                    }),
+                    secondaryButton: .cancel(Text("Cancel"))
+                )
+            }
+            .fullScreenCover(isPresented: $vm.showingScreenCover) {
+                ZStack {
+                    ImagePicker(image: $vm.selectedImage, showingScreenCover: $vm.showingScreenCover, showingImageCropper: $vm.showingImageCropper, imagePickerSource: vm.imagePickerSource)
+                    if vm.showingImageCropper {
+                        ImageCropper(imageToCrop: vm.selectedImage ?? UIImage(), croppedImage: $vm.croppedImage, showingScreenCover: $vm.showingScreenCover, showingImageCropper: $vm.showingImageCropper)
+                    }
+                }
+                .ignoresSafeArea()
+            }
+            .onChange(of: vm.croppedImage) { _ in
+                vm.performOcrFromImage()
             }
         }
         .onTapGesture {
