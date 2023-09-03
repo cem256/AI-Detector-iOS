@@ -9,14 +9,13 @@ import Foundation
 import Vision
 
 protocol TextRecognizerProtocol {
-    func recogizeText(from data: Data) -> String
+    func recogizeText(from cgImage: CGImage) -> String
 }
 
-
 final class TextRecognizerClient: TextRecognizerProtocol {
-    func recogizeText(from data: Data) -> String {
+    func recogizeText(from cgImage: CGImage) -> String {
         var recognizedStrings = ""
-        let requestHandler = VNImageRequestHandler(data: data)
+        let requestHandler = VNImageRequestHandler(cgImage: cgImage)
         let request = VNRecognizeTextRequest { request, _ in
             guard let observations = request.results as? [VNRecognizedTextObservation] else { return }
             let recognizedArray = observations.compactMap { observation in

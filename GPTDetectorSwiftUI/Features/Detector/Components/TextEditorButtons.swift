@@ -5,52 +5,61 @@
 //  Created by cem on 28.08.2023.
 //
 
-import PhotosUI
 import SwiftUI
 import Vision
 
 struct TextEditorButtons: View {
-    let clearAction: () -> Void
+    let onClearButtonTapped: () -> Void
     @Binding var userInput: String
-
-    @State private var selectedImage: PhotosPickerItem?
-
-    @MainActor
-    func recognizeText() async {
-        if let data = try? await selectedImage?.loadTransferable(type: Data.self) {
-            let result = TextRecognizerClient().recogizeText(from: data)
-            userInput = result
-        }
-    }
+    @State private var image: UIImage? = nil
+    @State private var showingScreenCover = false
+    @State private var showingImageCropper = false
+    @State private var source: UIImagePickerController.SourceType = .photoLibrary
 
     var body: some View {
         VStack {
             HStack {
                 Spacer()
                 Button {
-                    clearAction()
+                    onClearButtonTapped()
                 } label: {
                     Image(systemName: "xmark")
                 }
             }
             Spacer()
+
             HStack(spacing: .spacing.high) {
                 Spacer()
-                PhotosPicker(selection: $selectedImage, matching: .any(of: [.images, .screenshots])) {
+                Button {
+                    self.source = .photoLibrary
+                    self.showingScreenCover = true
+                } label: {
                     Image(systemName: "photo")
                 }
-
-                Button {} label: {
+                Button {
+                    self.source = .camera
+                    self.showingScreenCover = true
+                } label: {
                     Image(systemName: "camera")
                 }
             }
         }
+        .fullScreenCover(isPresented: $showingScreenCover) {
+            ZStack {
+                ImagePicker(image: $image, showingScreenCover: $showingScreenCover, showingImageCropper: $showingImageCropper, source: source)
+                if showingImageCropper {
+                    ImageCropper(image: $image, showingScreenCover: $showingScreenCover, showingImageCropper: $showingImageCropper)
+                }
+            }
+            .ignoresSafeArea()
+        }
+        .onChange(of: image) { _ in
+            if !showingImageCropper {
+                guard let cgImage = image?.cgImage else { return }
+                userInput = TextRecognizerClient().recogizeText(from: cgImage)
+            }
+        }
         .padding()
         .font(.title2)
-        .onChange(of: selectedImage, perform: { _ in
-            Task {
-                await recognizeText()
-            }
-        })
     }
 }
