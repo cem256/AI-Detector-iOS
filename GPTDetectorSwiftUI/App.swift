@@ -5,8 +5,8 @@
 //  Created by cem on 27.08.2023.
 //
 
-import SwiftUI
 import Factory
+import SwiftUI
 
 @main
 struct GPTDetectorSwiftUIApp: App {

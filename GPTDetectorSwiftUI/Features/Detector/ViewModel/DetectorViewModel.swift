@@ -22,14 +22,16 @@ final class DetectorViewModel: ObservableObject {
     @Published var userInput: String = ""
     @Published private(set) var isLoading: Bool = false
     @Published private(set) var detectionResult: DetectionResponse?
+
     @Published var showingError: Bool = false
+    @Published private(set) var errorType: AppError?
 
     @Published var selectedImage: UIImage? = nil
-    @Published var croppedImage: UIImage = .init()
     @Published private(set) var imagePickerSource: UIImagePickerController.SourceType = .photoLibrary
+    @Published var croppedImage: UIImage = .init()
+
     @Published var showingScreenCover: Bool = false
     @Published var showingImageCropper: Bool = false
-    @Published var showingPermissionAlert: Bool = false
 
     var isValidInput: Bool {
         if userInputLength < UserInputConstants.minInputLength || userInputLength > UserInputConstants.maxInputLength {
@@ -49,19 +51,23 @@ final class DetectorViewModel: ObservableObject {
     @MainActor
     func detect() async {
         isLoading = true
+        if !detectorService.isSupportedLanguage(input: userInput) {
+            errorType = .unsupportedLanguage
+            showingError = true
+        }
         do {
             let result = try await detectorService.detect(input: userInput)
             detectionResult = result
-            /*
-             } catch let networkError as NetworkError {
-                 errorMessage = networkError.errorMessage
-                 viewStatus = .failure
-                 showingError = true
-             */
         }
-        catch {
+        catch let error as AppError {
+            errorType = error
             showingError = true
         }
+        catch {
+            errorType = .unknownError
+            showingError = true
+        }
+
         isLoading = false
     }
 
@@ -80,7 +86,8 @@ final class DetectorViewModel: ObservableObject {
     func onCameraButtonTapped() async {
         imagePickerSource = .camera
         if !permissionHandlerClient.hasCameraPermission && permissionHandlerClient.hasCameraPermissionDenied {
-            showingPermissionAlert = true
+            errorType = .cameraPermissionDenied
+            showingError = true
         }
         else if !permissionHandlerClient.hasCameraPermission {
             await permissionHandlerClient.requestCameraPermission()

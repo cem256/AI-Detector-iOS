@@ -33,21 +33,18 @@ struct DetectorView: View {
                 }, isLoading: vm.isLoading, isDisabled: vm.isLoading || !vm.isValidInput, buttonTitle: "Analyze")
             }
             .padding()
-            .alert(isPresented: $vm.showingError) {
-                Alert(title: Text("Oops, Something Went Wrong"), message: Text("Don't worry, it's not your fault. Our team is on it."))
-            }
-            .alert(isPresented: $vm.showingPermissionAlert) {
-                Alert(
-                    title: Text("Camera Permission Required"),
-                    message: Text("Please grant permission to access the camera in settings."),
-                    primaryButton: .default(Text("Open Settings"), action: {
-                        if let settingsURL = URL(string: UIApplication.openSettingsURLString) {
-                            UIApplication.shared.open(settingsURL)
-                        }
-                    }),
-                    secondaryButton: .cancel(Text("Cancel"))
-                )
-            }
+            .alert(vm.errorType?.errorTitle ?? AppError.unknownError.errorTitle, isPresented: $vm.showingError, actions: {
+                if vm.errorType != .cameraPermissionDenied {
+                    Button("OK") {}
+                } else {
+                    Button("Cancel", role: .cancel) {}
+                    Button("Open Settings") { PermissionHandlerClient.openAppSettings() }
+                        .buttonStyle(.borderedProminent)
+                }
+
+            }, message: {
+                Text(vm.errorType?.errorDescription ?? AppError.unknownError.errorDescription)
+            })
             .fullScreenCover(isPresented: $vm.showingScreenCover) {
                 ZStack {
                     ImagePicker(image: $vm.selectedImage, showingScreenCover: $vm.showingScreenCover, showingImageCropper: $vm.showingImageCropper, imagePickerSource: vm.imagePickerSource)

@@ -6,11 +6,13 @@
 //
 
 import AVFoundation
+import UIKit
 
 protocol PermissionHandlerProtocol {
     var hasCameraPermission: Bool { get }
     var hasCameraPermissionDenied: Bool { get }
     func requestCameraPermission() async
+    static func openAppSettings()
 }
 
 final class PermissionHandlerClient: PermissionHandlerProtocol {
@@ -26,5 +28,11 @@ final class PermissionHandlerClient: PermissionHandlerProtocol {
 
     func requestCameraPermission() async {
         await AVCaptureDevice.requestAccess(for: .video)
+    }
+
+    static func openAppSettings() {
+        if let settingsURL = URL(string: UIApplication.openSettingsURLString) {
+            UIApplication.shared.open(settingsURL)
+        }
     }
 }

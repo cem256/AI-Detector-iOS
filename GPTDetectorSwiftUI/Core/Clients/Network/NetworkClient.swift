@@ -31,7 +31,7 @@ final class NetworkClient: NetworkClientProtocol {
         var urlComponents = URLComponents(string: baseUrl + path)
         urlComponents?.queryItems = queryParameters
 
-        guard let url = urlComponents?.url else { throw NetworkError.badURL }
+        guard let url = urlComponents?.url else { throw AppError.networkError }
 
         var request = URLRequest(url: url)
         request.httpMethod = method.rawValue
@@ -45,13 +45,9 @@ final class NetworkClient: NetworkClientProtocol {
 
         let (data, response) = try await URLSession.shared.data(for: request)
 
-        guard let httpResponse = response as? HTTPURLResponse else {
-            throw NetworkError.invalidResponse
-        }
+        guard let httpResponse = response as? HTTPURLResponse else { throw AppError.networkError }
 
-        if httpResponse.statusCode != 200 {
-            throw NetworkError.invalidStatusCode(statusCode: httpResponse.statusCode)
-        }
+        if httpResponse.statusCode != 200 { throw AppError.networkError }
 
         return data
     }

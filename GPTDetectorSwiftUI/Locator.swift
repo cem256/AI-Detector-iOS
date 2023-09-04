@@ -26,7 +26,7 @@ extension Container {
     // MARK: Services
 
     private var detectorService: Factory<DetectorServiceProtocol> {
-        Factory(self) { DetectorService(networkClient: self.networkClient()) }
+        Factory(self) { DetectorService(networkClient: self.networkClient(), languageIdentifierClient: self.languageIdentifierClient()) }
     }
 
     // MARK: Clients
@@ -45,5 +45,9 @@ extension Container {
 
     private var textRecognizerClient: Factory<TextRecognizerProtocol> {
         Factory(self) { TextRecognizerClient() }
+    }
+
+    private var languageIdentifierClient: Factory<LanguageIdentifierProtocol> {
+        Factory(self) { LanguageIdentifierClient() }
     }
 }
