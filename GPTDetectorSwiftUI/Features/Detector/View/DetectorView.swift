@@ -34,25 +34,12 @@ struct DetectorView: View {
             }
             .padding()
             .alert(vm.errorType?.errorTitle ?? AppError.unknownError.errorTitle, isPresented: $vm.showingError, actions: {
-                if vm.errorType != .cameraPermissionDenied {
-                    Button("OK") {}
-                } else {
-                    Button("Cancel", role: .cancel) {}
-                    Button("Open Settings") { PermissionHandlerClient.openAppSettings() }
-                        .buttonStyle(.borderedProminent)
-                }
-
+                alertButtons
             }, message: {
                 Text(vm.errorType?.errorDescription ?? AppError.unknownError.errorDescription)
             })
             .fullScreenCover(isPresented: $vm.showingScreenCover) {
-                ZStack {
-                    ImagePicker(image: $vm.selectedImage, showingScreenCover: $vm.showingScreenCover, showingImageCropper: $vm.showingImageCropper, imagePickerSource: vm.imagePickerSource)
-                    if vm.showingImageCropper {
-                        ImageCropper(imageToCrop: vm.selectedImage ?? UIImage(), croppedImage: $vm.croppedImage, showingScreenCover: $vm.showingScreenCover, showingImageCropper: $vm.showingImageCropper)
-                    }
-                }
-                .ignoresSafeArea()
+                fullScreenCoverContent
             }
             .onChange(of: vm.croppedImage) { _ in
                 vm.performOcrFromImage()
@@ -61,6 +48,29 @@ struct DetectorView: View {
         .onTapGesture {
             self.endTextEditing()
         }
+    }
+}
+
+extension DetectorView {
+    @ViewBuilder
+    private var alertButtons: some View {
+        if vm.errorType != .cameraPermissionDenied {
+            Button("OK") {}
+        } else {
+            Button("Cancel", role: .cancel) {}
+            Button("Open Settings") { PermissionHandlerClient.openAppSettings() }
+                .buttonStyle(.borderedProminent)
+        }
+    }
+
+    private var fullScreenCoverContent: some View {
+        ZStack {
+            ImagePicker(image: $vm.selectedImage, showingScreenCover: $vm.showingScreenCover, showingImageCropper: $vm.showingImageCropper, imagePickerSource: vm.imagePickerSource)
+            if vm.showingImageCropper {
+                ImageCropper(imageToCrop: vm.selectedImage ?? UIImage(), croppedImage: $vm.croppedImage, showingScreenCover: $vm.showingScreenCover, showingImageCropper: $vm.showingImageCropper)
+            }
+        }
+        .ignoresSafeArea()
     }
 }
 
