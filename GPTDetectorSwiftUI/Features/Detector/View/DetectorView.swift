@@ -22,7 +22,7 @@ struct DetectorView: View {
             VStack(spacing: .spacing.high) {
                 HeaderView()
                     .padding(.horizontal)
-                DetectionResutlView(detectionResponse: vm.detectionResult)
+                DetectionResultView(detectionResponse: vm.detectionResult)
                 ZStack {
                     TextEditorWithPlaceholder(text: $vm.userInput, placeholder: "Paste text or type here...")
                     TextEditorButtons(onClearButtonTapped: vm.onClearButtonTapped, onPhotoLibraryButtonTapped: vm.onPhotoLibraryButtonTapped, onCameraButtonTapped: vm.onCameraButtonTapped)

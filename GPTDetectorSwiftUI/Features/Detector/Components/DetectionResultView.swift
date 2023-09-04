@@ -1,5 +1,5 @@
 //
-//  DetectionResutlView.swift
+//  DetectionResultView.swift
 //  GPTDetectorSwiftUI
 //
 //  Created by cem on 28.08.2023.
@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct DetectionResutlView: View {
+struct DetectionResultView: View {
     let detectionResponse: DetectionResponse?
 
     var body: some View {
@@ -19,7 +19,7 @@ struct DetectionResutlView: View {
         .font(.headline)
         .frame(maxWidth: .infinity)
         .padding(.vertical, .padding.medium)
-        .background(resultFromResponse.backgroundColor)
+        .background(resultFromResponse.backgroundColor.animation(.default))
         .cornerRadius(.borderRadius.regular)
     }
 

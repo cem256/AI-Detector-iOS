@@ -76,16 +76,16 @@ private struct FAQSection: View {
                 Text("How results are calculated?")
                     .fontWeight(.semibold)
                     .padding(.bottom, .padding.medium)
-
-                Text("- Large language models like ChatGPT generate text that is typically less complex and random than human-created content. The level of randomness and complexity can be analyzed to differentiate between AI-generated and human-created content.")
+                Text("- Large language models like ChatGPT typically generate text that is less complex and random compared to human-created content. The level of randomness and complexity can be analyzed to differentiate between AI-generated and human-created content.")
                     .padding(.bottom, .padding.high)
                 Text("What are the limitations of the GPT Detector?")
                     .fontWeight(.semibold)
                     .padding(.bottom, .padding.medium)
-                Text("- The current version of the GPT Detector is optimized for texts written in English. So, using text in other languages may result in inaccurate results.")
+                Text("- Current version of the GPT Detector is optimized for texts written in English. So, using text in other languages may result in inaccurate results.")
                     .padding(.bottom, .padding.medium)
-
-                Text("- As AI models advance, they become better at generating text that resembles human writing, which affects the reliability of the GPT Detector. Therefore, relying solely on the detector's results for decision making is not recommended.")
+                Text("- Texts written by children or non-native English speakers may be misclassified because they often produce text that is less random and complex.")
+                    .padding(.bottom, .padding.medium)
+                Text("- As AI models advance, they become better at generating text that looks like human writing which affects the reliability of the GPT Detector. Therefore, it's not advised to solely rely on the detector's results for decision-making.")
             }
         }
     }
