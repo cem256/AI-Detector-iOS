@@ -14,7 +14,7 @@ struct HelperTextView: View {
     var body: some View {
         if !isValidInput {
             HStack {
-                Text(UserInputConstants.isShortInput(inputLength: inputLength) ? "Enter at least \(UserInputConstants.minInputLength) characters." : "Enter at most \(UserInputConstants.maxInputLength) characters.")
+                Text(UserInputConstants.isShortInput(inputLength: inputLength) ? LocalizedStringKey("DETECTOR_ENTER_AT_LEAST_CHARACTERS \(UserInputConstants.minInputLength)") : LocalizedStringKey("DETECTOR_ENTER_AT_MOST_CHARACTERS \(UserInputConstants.maxInputLength)"))
                 Spacer()
                 Text("\(inputLength)/\(UserInputConstants.isShortInput(inputLength: inputLength) ? UserInputConstants.minInputLength : UserInputConstants.maxInputLength)")
             }

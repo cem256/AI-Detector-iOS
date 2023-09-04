@@ -24,6 +24,8 @@
 		B26E02092A9CC5BA00E13B28 /* AsyncButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B26E02082A9CC5BA00E13B28 /* AsyncButton.swift */; };
 		B26E0D932AA5D3E600E116F9 /* LanguageIdentifierClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = B26E0D922AA5D3E600E116F9 /* LanguageIdentifierClient.swift */; };
 		B26E0D962AA5D9CA00E116F9 /* AppError.swift in Sources */ = {isa = PBXBuildFile; fileRef = B26E0D952AA5D9CA00E116F9 /* AppError.swift */; };
+		B26E0D9D2AA6282A00E116F9 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = B26E0D9F2AA6282A00E116F9 /* Localizable.strings */; };
+		B26E0DA52AA65C6900E116F9 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = B26E0DA42AA65C6900E116F9 /* InfoPlist.strings */; };
 		B2B1D0672A9F527B007D1A2F /* AboutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2B1D0662A9F527B007D1A2F /* AboutView.swift */; };
 		B2B1D06A2A9F6ED4007D1A2F /* URLConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2B1D0692A9F6ED4007D1A2F /* URLConstants.swift */; };
 		B2B1D06E2A9F7859007D1A2F /* ReviewAppUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2B1D06D2A9F7859007D1A2F /* ReviewAppUtils.swift */; };
@@ -69,6 +71,8 @@
 		B26E02082A9CC5BA00E13B28 /* AsyncButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AsyncButton.swift; sourceTree = "<group>"; };
 		B26E0D922AA5D3E600E116F9 /* LanguageIdentifierClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LanguageIdentifierClient.swift; sourceTree = "<group>"; };
 		B26E0D952AA5D9CA00E116F9 /* AppError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppError.swift; sourceTree = "<group>"; };
+		B26E0D9E2AA6282A00E116F9 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		B26E0DA42AA65C6900E116F9 /* InfoPlist.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = InfoPlist.strings; sourceTree = "<group>"; };
 		B2B1D0662A9F527B007D1A2F /* AboutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutView.swift; sourceTree = "<group>"; };
 		B2B1D0692A9F6ED4007D1A2F /* URLConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLConstants.swift; sourceTree = "<group>"; };
 		B2B1D06D2A9F7859007D1A2F /* ReviewAppUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewAppUtils.swift; sourceTree = "<group>"; };
@@ -149,9 +153,10 @@
 		B21D0CEB2A9CFE0500999C72 /* App */ = {
 			isa = PBXGroup;
 			children = (
-				B26E0D942AA5D99A00E116F9 /* Errors */,
 				B2B1D0682A9F6EB6007D1A2F /* Constants */,
 				B2DAF61A2A9CF74900ED40EE /* Env */,
+				B26E0D942AA5D99A00E116F9 /* Errors */,
+				B26E0D9A2AA6280F00E116F9 /* L10n */,
 				B21D0CEC2A9CFEBC00999C72 /* Theme */,
 			);
 			path = App;
@@ -313,6 +318,15 @@
 				B26E0D952AA5D9CA00E116F9 /* AppError.swift */,
 			);
 			path = Errors;
+			sourceTree = "<group>";
+		};
+		B26E0D9A2AA6280F00E116F9 /* L10n */ = {
+			isa = PBXGroup;
+			children = (
+				B26E0DA42AA65C6900E116F9 /* InfoPlist.strings */,
+				B26E0D9F2AA6282A00E116F9 /* Localizable.strings */,
+			);
+			path = L10n;
 			sourceTree = "<group>";
 		};
 		B2B1D0632A9F5261007D1A2F /* About */ = {
@@ -543,6 +557,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				B21AEFF02A9B4B120006EC12 /* Preview Assets.xcassets in Resources */,
+				B26E0DA52AA65C6900E116F9 /* InfoPlist.strings in Resources */,
+				B26E0D9D2AA6282A00E116F9 /* Localizable.strings in Resources */,
 				B21AEFED2A9B4B120006EC12 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -596,6 +612,17 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		B26E0D9F2AA6282A00E116F9 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				B26E0D9E2AA6282A00E116F9 /* en */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		B21AEFF12A9B4B120006EC12 /* Debug */ = {
@@ -725,7 +752,7 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = GPTDetectorSwiftUI/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = "GPT Detector";
-				INFOPLIST_KEY_NSCameraUsageDescription = "To extract text using your device's camera, we need your permission.";
+				INFOPLIST_KEY_NSCameraUsageDescription = NSCameraUsageDescription;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
@@ -760,7 +787,7 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = GPTDetectorSwiftUI/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = "GPT Detector";
-				INFOPLIST_KEY_NSCameraUsageDescription = "To extract text using your device's camera, we need your permission.";
+				INFOPLIST_KEY_NSCameraUsageDescription = NSCameraUsageDescription;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;

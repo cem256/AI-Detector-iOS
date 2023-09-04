@@ -19,20 +19,20 @@ struct DetectionResultView: View {
         .font(.headline)
         .frame(maxWidth: .infinity)
         .padding(.vertical, .padding.medium)
-        .background(resultFromResponse.backgroundColor.animation(.default))
+        .background(resultFromResponse.backgroundColor)
         .cornerRadius(.borderRadius.regular)
     }
 
-    private var resultFromResponse: (title: String, subtitle: String, backgroundColor: Color) {
+    private var resultFromResponse: (title: LocalizedStringKey, subtitle: LocalizedStringKey, backgroundColor: Color) {
         switch detectionResponse?.uClassification {
         case .initial, .none:
-            return ("Type In", "Text For Analysis", Color.theme.accentColor)
+            return ("DETECTOR_CLASSIFICATION_TITLE_INITIAL", "DETECTOR_CLASSIFICATION_DESCRIPTION_INITIAL", Color.theme.accentColor)
         case .ai:
-            return ("AI", "Likely Written by AI", Color.theme.aiContentColor)
+            return ("DETECTOR_CLASSIFICATION_TITLE_AI", "DETECTOR_CLASSIFICATION_DESCRIPTION_AI", Color.theme.aiContentColor)
         case .mixed:
-            return ("Mixed", "May Include Parts Written by AI", Color.theme.mixedContentColor)
+            return ("DETECTOR_CLASSIFICATION_TITLE_MIXED", "DETECTOR_CLASSIFICATION_DESCRIPTION_MIXED", Color.theme.mixedContentColor)
         case .human:
-            return ("Human", "Likely Written by Human", Color.theme.humanContentColor)
+            return ("DETECTOR_CLASSIFICATION_TITLE_HUMAN", "DETECTOR_CLASSIFICATION_DESCRIPTION_HUMAN", Color.theme.humanContentColor)
         }
     }
 }

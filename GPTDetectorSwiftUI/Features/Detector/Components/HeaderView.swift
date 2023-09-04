@@ -11,7 +11,7 @@ struct HeaderView: View {
     var body: some View {
         HStack {
             Spacer()
-            Text("GPT Detector")
+            Text("APP_NAME")
                 .font(.title)
                 .fontWeight(.medium)
 

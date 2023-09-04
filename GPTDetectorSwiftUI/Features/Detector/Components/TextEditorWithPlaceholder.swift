@@ -9,7 +9,7 @@ import SwiftUI
 
 struct TextEditorWithPlaceholder: View {
     @Binding var text: String
-    let placeholder: String
+    let placeholder: LocalizedStringKey
     @FocusState private var isFocused
 
     var body: some View {

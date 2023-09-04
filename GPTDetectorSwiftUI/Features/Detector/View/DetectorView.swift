@@ -24,19 +24,19 @@ struct DetectorView: View {
                     .padding(.horizontal)
                 DetectionResultView(detectionResponse: vm.detectionResult)
                 ZStack {
-                    TextEditorWithPlaceholder(text: $vm.userInput, placeholder: "Paste text or type here...")
+                    TextEditorWithPlaceholder(text: $vm.userInput, placeholder: "DETECTOR_TEXT_EDITOR_PLACEHOLDER")
                     TextEditorButtons(onClearButtonTapped: vm.onClearButtonTapped, onPhotoLibraryButtonTapped: vm.onPhotoLibraryButtonTapped, onCameraButtonTapped: vm.onCameraButtonTapped)
                 }
                 HelperTextView(isValidInput: vm.isValidInput, inputLength: vm.userInputLength)
                 AsyncButton(action: {
                     await vm.detect()
-                }, isLoading: vm.isLoading, isDisabled: vm.isLoading || !vm.isValidInput, buttonTitle: "Analyze")
+                }, isLoading: vm.isLoading, isDisabled: vm.isLoading || !vm.isValidInput, buttonTitle: "DETECTOR_BUTTON_ANALYZE")
             }
             .padding()
-            .alert(vm.errorType?.errorTitle ?? AppError.unknownError.errorTitle, isPresented: $vm.showingError, actions: {
+            .alert(LocalizedStringKey(vm.errorType?.errorTitle ?? AppError.unknownError.errorTitle), isPresented: $vm.showingError, actions: {
                 alertButtons
             }, message: {
-                Text(vm.errorType?.errorDescription ?? AppError.unknownError.errorDescription)
+                Text(LocalizedStringKey(vm.errorType?.errorDescription ?? AppError.unknownError.errorDescription))
             })
             .fullScreenCover(isPresented: $vm.showingScreenCover) {
                 fullScreenCoverContent
@@ -55,10 +55,10 @@ extension DetectorView {
     @ViewBuilder
     private var alertButtons: some View {
         if vm.errorType != .cameraPermissionDenied {
-            Button("OK") {}
+            Button("BUTTON_OK") {}
         } else {
-            Button("Cancel", role: .cancel) {}
-            Button("Open Settings") { PermissionHandlerClient.openAppSettings() }
+            Button("BUTTON_CANCEL", role: .cancel) {}
+            Button("BUTTON_OPEN_SETTINGS") { PermissionHandlerClient.openAppSettings() }
                 .buttonStyle(.borderedProminent)
         }
     }

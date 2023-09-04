@@ -20,6 +20,8 @@ struct ImageCropper: UIViewControllerRepresentable {
         cropper.aspectRatioLockEnabled = false
         cropper.aspectRatioPickerButtonHidden = true
         cropper.cropView.backgroundColor = UIColor(Color.theme.backgroundColor)
+        cropper.cancelButtonTitle = String(localized: "BUTTON_CANCEL")
+        cropper.doneButtonTitle = String(localized: "BUTTON_DONE")
         cropper.delegate = context.coordinator
 
         return cropper

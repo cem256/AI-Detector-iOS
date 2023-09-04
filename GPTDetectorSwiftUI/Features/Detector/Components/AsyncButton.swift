@@ -11,7 +11,7 @@ struct AsyncButton: View {
     let action: () async -> Void
     let isLoading: Bool
     let isDisabled: Bool
-    let buttonTitle: String
+    let buttonTitle: LocalizedStringKey
 
     var body: some View {
         Button {

@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import SwiftUI
 
 enum AppError: Error {
     case networkError
@@ -16,26 +17,26 @@ enum AppError: Error {
     var errorTitle: String {
         switch self {
         case .networkError:
-            return "Network Error"
+            return "APP_ERROR_NETWORK_TITLE"
         case .unknownError:
-            return "Oops, Something Went Wrong"
+            return "APP_ERROR_UNKNOWN_TITLE"
         case .unsupportedLanguage:
-            return "Unsupported Language"
+            return "APP_ERROR_UNSUPPORTED_LANGUAGE_TITLE"
         case .cameraPermissionDenied:
-            return "Camera Permission Required"
+            return "APP_ERROR_CAMERA_PERMISSION_TITLE"
         }
     }
 
     var errorDescription: String {
         switch self {
         case .networkError:
-            return "Looks like we're having trouble connecting to the server."
+            return "APP_ERROR_NETWORK_DESCRIPTION"
         case .unknownError:
-            return "Don't worry, it's not your fault. Our team is on it."
+            return "APP_ERROR_UNKNOWN_DESCRIPTION"
         case .unsupportedLanguage:
-            return "It seems like you've entered non-English text, which may lead to inaccurate results."
+            return "APP_ERROR_UNSUPPORTED_LANGUAGE_DESCRIPTION"
         case .cameraPermissionDenied:
-            return "Please grant camera permission to extract text using your device's camera in the settings."
+            return "APP_ERROR_CAMERA_PERMISSION_DESCRIPTION"
         }
     }
 }

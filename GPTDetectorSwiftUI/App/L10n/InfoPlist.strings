@@ -1,0 +1,9 @@
+/* 
+  InfoPlist.strings
+  GPTDetectorSwiftUI
+
+  Created by cem on 4.09.2023.
+  
+*/
+
+"NSCameraUsageDescription" = "To extract text using your device's camera, we need your permission.";
