@@ -54,6 +54,10 @@ final class DetectorViewModel: ObservableObject {
         if !detectorService.isSupportedLanguage(input: userInput) {
             errorType = .unsupportedLanguage
             showingError = true
+            // cancel processing events until showingError becomes false
+            while showingError {
+                try? await Task.sleep(nanoseconds: 1_000_000_000)
+            }
         }
         do {
             let result = try await detectorService.detect(input: userInput)

@@ -33,7 +33,7 @@ enum AppError: Error {
         case .unknownError:
             return "Don't worry, it's not your fault. Our team is on it."
         case .unsupportedLanguage:
-            return "Please input text in English. Using other languages may result in inaccurate results."
+            return "It seems like you've entered non-English text, which may lead to inaccurate results."
         case .cameraPermissionDenied:
             return "Please grant camera permission to extract text using your device's camera in the settings."
         }
