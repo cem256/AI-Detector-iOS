@@ -7,10 +7,9 @@
 
 import Foundation
 
-// TODO: Change urls accordingly
 struct URLConstants {
     private init() {}
 
     static let privacyPolicyUrl: URL = .init(string: "https://cem256.github.io/GPT-Detector/privacy-policy.html")!
-    static let appStoreUrl: URL = .init(string: "https://play.google.com/store/apps/details?id=com.cem256.gptdetector")!
+    static let appStoreUrl: URL = .init(string: "https://apps.apple.com/app/id6466612799")!
 }
