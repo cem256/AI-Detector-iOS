@@ -42,4 +42,6 @@ Developed with [MVVM](https://en.wikipedia.org/wiki/Model%E2%80%93view%E2%80%93v
 - Dependency Injection
   - [Factory](https://github.com/hmlongco/Factory)
 - Image Cropper
-  - [TOCropViewController](https://github.com/TimOliver/TOCropViewController) for cropping images
+  - [TOCropViewController](https://github.com/TimOliver/TOCropViewController)
+- Resource Generator
+  - [R.swift](https://github.com/mac-cain13/R.swift)
