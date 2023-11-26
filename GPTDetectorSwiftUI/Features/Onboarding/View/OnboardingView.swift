@@ -19,14 +19,14 @@ struct OnboardingView: View {
 
     var body: some View {
         ZStack {
-            Color.theme.backgroundColor
+            Color(R.color.backgroundColor.name)
                 .ignoresSafeArea()
             VStack(alignment: .leading, spacing: .spacing.veryHigh) {
                 Header()
                 Group {
-                    ImageWithDescription(image: "hand.wave", description: "ONBOARDING1")
-                    ImageWithDescription(image: "info.circle", description: "ONBOARDING2")
-                    ImageWithDescription(image: "character.bubble", description: "ONBOARDING3")
+                    ImageWithDescription(image: "hand.wave", description: R.string.localizable.onboarding1())
+                    ImageWithDescription(image: "info.circle", description: R.string.localizable.onboarding2())
+                    ImageWithDescription(image: "character.bubble", description: R.string.localizable.onboarding3())
                 }
                 .padding(.horizontal)
                 Spacer()
@@ -44,11 +44,11 @@ private struct Header: View {
         HStack {
             Spacer()
             ZStack(alignment: .bottom) {
-                Image("LaunchScreen")
+                Image(R.image.launchScreen)
                     .resizable()
                     .scaledToFit()
                     .frame(width: .imageSize.xxLarge, height: .imageSize.xxLarge)
-                Text("APP_NAME")
+                Text(R.string.localizable.app_NAME())
                     .font(.title)
             }
             Spacer()
@@ -58,7 +58,7 @@ private struct Header: View {
 
 private struct ImageWithDescription: View {
     let image: String
-    let description: LocalizedStringKey
+    let description: String
 
     var body: some View {
         HStack(spacing: .spacing.veryHigh) {
@@ -66,7 +66,7 @@ private struct ImageWithDescription: View {
                 .resizable()
                 .scaledToFit()
                 .frame(width: .imageSize.regular, height: .imageSize.regular)
-                .foregroundColor(Color.theme.accentColor)
+                .foregroundColor(Color(R.color.accentColor.name))
 
             Text(description)
             Spacer()
@@ -85,10 +85,10 @@ private struct GetStartedButton: View {
             }
 
         } label: {
-            Text("ONBOARDING_GET_STARTED")
+            Text(R.string.localizable.onboarding_GET_STARTED())
                 .frame(maxWidth: .infinity, minHeight: .buttonSize.regular)
-                .background(Color.theme.accentColor)
-                .foregroundColor(Color.theme.secondaryTextColor)
+                .background(Color(R.color.accentColor.name))
+                .foregroundColor(Color(R.color.secondaryTextColor.name))
                 .font(.headline)
                 .cornerRadius(.borderRadius.regular)
         }

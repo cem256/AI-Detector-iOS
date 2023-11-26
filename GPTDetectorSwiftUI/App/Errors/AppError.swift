@@ -17,26 +17,26 @@ enum AppError: Error {
     var errorTitle: String {
         switch self {
         case .networkError:
-            return "APP_ERROR_NETWORK_TITLE"
+            return R.string.localizable.app_ERROR_NETWORK_TITLE()
         case .unknownError:
-            return "APP_ERROR_UNKNOWN_TITLE"
+            return R.string.localizable.app_ERROR_UNKNOWN_TITLE()
         case .unsupportedLanguage:
-            return "APP_ERROR_UNSUPPORTED_LANGUAGE_TITLE"
+            return R.string.localizable.app_ERROR_UNSUPPORTED_LANGUAGE_TITLE()
         case .cameraPermissionDenied:
-            return "APP_ERROR_CAMERA_PERMISSION_TITLE"
+            return R.string.localizable.app_ERROR_CAMERA_PERMISSION_TITLE()
         }
     }
 
     var errorDescription: String {
         switch self {
         case .networkError:
-            return "APP_ERROR_NETWORK_DESCRIPTION"
+            return R.string.localizable.app_ERROR_NETWORK_DESCRIPTION()
         case .unknownError:
-            return "APP_ERROR_UNKNOWN_DESCRIPTION"
+            return R.string.localizable.app_ERROR_UNKNOWN_DESCRIPTION()
         case .unsupportedLanguage:
-            return "APP_ERROR_UNSUPPORTED_LANGUAGE_DESCRIPTION"
+            return R.string.localizable.app_ERROR_UNSUPPORTED_LANGUAGE_DESCRIPTION()
         case .cameraPermissionDenied:
-            return "APP_ERROR_CAMERA_PERMISSION_DESCRIPTION"
+            return R.string.localizable.app_ERROR_CAMERA_PERMISSION_DESCRIPTION()
         }
     }
 }

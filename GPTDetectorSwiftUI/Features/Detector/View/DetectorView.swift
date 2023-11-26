@@ -17,14 +17,14 @@ struct DetectorView: View {
 
     var body: some View {
         ZStack {
-            Color.theme.backgroundColor
+            Color(R.color.backgroundColor.name)
                 .ignoresSafeArea()
             VStack(spacing: .spacing.high) {
                 HeaderView()
                     .padding(.horizontal)
                 DetectionResultView(detectionResponse: vm.detectionResult)
                 ZStack {
-                    TextEditorWithPlaceholder(text: $vm.userInput, placeholder: "DETECTOR_TEXT_EDITOR_PLACEHOLDER")
+                    TextEditorWithPlaceholder(text: $vm.userInput, placeholder: R.string.localizable.detector_TEXT_EDITOR_PLACEHOLDER())
                     TextEditorButtons(onClearButtonTapped: vm.onClearButtonTapped, onPhotoLibraryButtonTapped: vm.onPhotoLibraryButtonTapped, onCameraButtonTapped: vm.onCameraButtonTapped)
                 }
                 HelperTextView(isValidInput: vm.isValidInput, inputLength: vm.userInputLength)
@@ -38,7 +38,7 @@ struct DetectorView: View {
                             vm.toggleAnimation()
                         }
                     }
-                }, isLoading: vm.isLoading, buttonTitle: "DETECTOR_BUTTON_ANALYZE")
+                }, isLoading: vm.isLoading, buttonTitle: R.string.localizable.detector_BUTTON_ANALYZE())
             }
             .padding()
             .alert(LocalizedStringKey(vm.errorType?.errorTitle ?? AppError.unknownError.errorTitle), isPresented: $vm.showingError, actions: {
@@ -63,10 +63,10 @@ extension DetectorView {
     @ViewBuilder
     private var alertButtons: some View {
         if vm.errorType != .cameraPermissionDenied {
-            Button("BUTTON_OK") {}
+            Button(R.string.localizable.button_OK()) {}
         } else {
-            Button("BUTTON_CANCEL", role: .cancel) {}
-            Button("BUTTON_OPEN_SETTINGS") { PermissionHandlerClient.openAppSettings() }
+            Button(R.string.localizable.button_CANCEL(), role: .cancel) {}
+            Button(R.string.localizable.button_OPEN_SETTINGS()) { PermissionHandlerClient.openAppSettings() }
                 .buttonStyle(.borderedProminent)
         }
     }

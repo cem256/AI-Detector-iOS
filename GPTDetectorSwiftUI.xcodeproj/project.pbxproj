@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		B21AEFE92A9B4B110006EC12 /* App.swift in Sources */ = {isa = PBXBuildFile; fileRef = B21AEFE82A9B4B110006EC12 /* App.swift */; };
 		B21AEFED2A9B4B120006EC12 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B21AEFEC2A9B4B120006EC12 /* Assets.xcassets */; };
-		B21AEFF02A9B4B120006EC12 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B21AEFEF2A9B4B120006EC12 /* Preview Assets.xcassets */; };
 		B222AD022AA2077100DA21DA /* Factory in Frameworks */ = {isa = PBXBuildFile; productRef = B222AD012AA2077100DA21DA /* Factory */; };
 		B222AD042AA207C800DA21DA /* Locator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B222AD032AA207C800DA21DA /* Locator.swift */; };
 		B222AD072AA23ACF00DA21DA /* TextRecognizerClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = B222AD062AA23ACF00DA21DA /* TextRecognizerClient.swift */; };
@@ -26,6 +25,7 @@
 		B26E0D962AA5D9CA00E116F9 /* AppError.swift in Sources */ = {isa = PBXBuildFile; fileRef = B26E0D952AA5D9CA00E116F9 /* AppError.swift */; };
 		B26E0D9D2AA6282A00E116F9 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = B26E0D9F2AA6282A00E116F9 /* Localizable.strings */; };
 		B26E0DA52AA65C6900E116F9 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = B26E0DA42AA65C6900E116F9 /* InfoPlist.strings */; };
+		B26EA7652B134C2A00D420EF /* RswiftLibrary in Frameworks */ = {isa = PBXBuildFile; productRef = B26EA7642B134C2A00D420EF /* RswiftLibrary */; };
 		B2A976542B133E58000BF650 /* AppAnimations.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2A976532B133E58000BF650 /* AppAnimations.swift */; };
 		B2B1D0672A9F527B007D1A2F /* AboutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2B1D0662A9F527B007D1A2F /* AboutView.swift */; };
 		B2B1D06A2A9F6ED4007D1A2F /* URLConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2B1D0692A9F6ED4007D1A2F /* URLConstants.swift */; };
@@ -50,7 +50,6 @@
 		B2B491DC2A9B6EFE00C5C64D /* DetectionResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2B491DB2A9B6EFE00C5C64D /* DetectionResponse.swift */; };
 		B2B491E22A9B935E00C5C64D /* TextEditorWithPlaceholder.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2B491E12A9B935E00C5C64D /* TextEditorWithPlaceholder.swift */; };
 		B2B491E42A9BA02000C5C64D /* DetectionRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2B491E32A9BA02000C5C64D /* DetectionRequest.swift */; };
-		B2B491EB2A9C8F3E00C5C64D /* ColorScheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2B491EA2A9C8F3E00C5C64D /* ColorScheme.swift */; };
 		B2DAF61C2A9CF7DB00ED40EE /* Env.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2DAF61B2A9CF7DB00ED40EE /* Env.swift */; };
 /* End PBXBuildFile section */
 
@@ -58,7 +57,6 @@
 		B21AEFE52A9B4B110006EC12 /* GPTDetectorSwiftUI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GPTDetectorSwiftUI.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B21AEFE82A9B4B110006EC12 /* App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = App.swift; sourceTree = "<group>"; };
 		B21AEFEC2A9B4B120006EC12 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		B21AEFEF2A9B4B120006EC12 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		B222AD032AA207C800DA21DA /* Locator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Locator.swift; sourceTree = "<group>"; };
 		B222AD062AA23ACF00DA21DA /* TextRecognizerClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextRecognizerClient.swift; sourceTree = "<group>"; };
 		B26E01EC2A9CACE900E13B28 /* HeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderView.swift; sourceTree = "<group>"; };
@@ -97,7 +95,6 @@
 		B2B491DB2A9B6EFE00C5C64D /* DetectionResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetectionResponse.swift; sourceTree = "<group>"; };
 		B2B491E12A9B935E00C5C64D /* TextEditorWithPlaceholder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextEditorWithPlaceholder.swift; sourceTree = "<group>"; };
 		B2B491E32A9BA02000C5C64D /* DetectionRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetectionRequest.swift; sourceTree = "<group>"; };
-		B2B491EA2A9C8F3E00C5C64D /* ColorScheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorScheme.swift; sourceTree = "<group>"; };
 		B2DAF61B2A9CF7DB00ED40EE /* Env.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Env.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -108,6 +105,7 @@
 			files = (
 				B222AD022AA2077100DA21DA /* Factory in Frameworks */,
 				B2B1F3372AA386A50064B8DA /* CropViewController in Frameworks */,
+				B26EA7652B134C2A00D420EF /* RswiftLibrary in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -118,7 +116,9 @@
 			isa = PBXGroup;
 			children = (
 				B21AEFE72A9B4B110006EC12 /* GPTDetectorSwiftUI */,
+				B21AEFEE2A9B4B120006EC12 /* Preview Content */,
 				B21AEFE62A9B4B110006EC12 /* Products */,
+				B26EA7632B134C2A00D420EF /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -146,10 +146,9 @@
 		B21AEFEE2A9B4B120006EC12 /* Preview Content */ = {
 			isa = PBXGroup;
 			children = (
-				B21AEFEF2A9B4B120006EC12 /* Preview Assets.xcassets */,
+				B21AEFEC2A9B4B120006EC12 /* Assets.xcassets */,
 			);
-			name = "Preview Content";
-			path = "../Preview Content";
+			path = "Preview Content";
 			sourceTree = "<group>";
 		};
 		B21D0CEB2A9CFE0500999C72 /* App */ = {
@@ -169,7 +168,6 @@
 			isa = PBXGroup;
 			children = (
 				B26E01F32A9CB04000E13B28 /* Borders */,
-				B2B491E92A9C8F2900C5C64D /* ColorScheme */,
 				B26E01F92A9CB27800E13B28 /* Padding */,
 				B26E01F02A9CAEA800E13B28 /* Sizes */,
 				B26E01F62A9CB13A00E13B28 /* Spacing */,
@@ -332,6 +330,13 @@
 			path = L10n;
 			sourceTree = "<group>";
 		};
+		B26EA7632B134C2A00D420EF /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		B2A976522B133E34000BF650 /* Animations */ = {
 			isa = PBXGroup;
 			children = (
@@ -479,18 +484,8 @@
 		B2B491E82A9C8F0A00C5C64D /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				B21AEFEC2A9B4B120006EC12 /* Assets.xcassets */,
-				B21AEFEE2A9B4B120006EC12 /* Preview Content */,
 			);
 			path = Resources;
-			sourceTree = "<group>";
-		};
-		B2B491E92A9C8F2900C5C64D /* ColorScheme */ = {
-			isa = PBXGroup;
-			children = (
-				B2B491EA2A9C8F3E00C5C64D /* ColorScheme.swift */,
-			);
-			path = ColorScheme;
 			sourceTree = "<group>";
 		};
 		B2DAF61A2A9CF74900ED40EE /* Env */ = {
@@ -515,11 +510,13 @@
 			buildRules = (
 			);
 			dependencies = (
+				B26EA7672B134C4100D420EF /* PBXTargetDependency */,
 			);
 			name = GPTDetectorSwiftUI;
 			packageProductDependencies = (
 				B222AD012AA2077100DA21DA /* Factory */,
 				B2B1F3362AA386A50064B8DA /* CropViewController */,
+				B26EA7642B134C2A00D420EF /* RswiftLibrary */,
 			);
 			productName = GPTDetectorSwiftUI;
 			productReference = B21AEFE52A9B4B110006EC12 /* GPTDetectorSwiftUI.app */;
@@ -552,6 +549,7 @@
 			packageReferences = (
 				B222AD002AA2077100DA21DA /* XCRemoteSwiftPackageReference "Factory" */,
 				B2B1F3352AA386A50064B8DA /* XCRemoteSwiftPackageReference "TOCropViewController" */,
+				B26EA75E2B134BF700D420EF /* XCRemoteSwiftPackageReference "R" */,
 			);
 			productRefGroup = B21AEFE62A9B4B110006EC12 /* Products */;
 			projectDirPath = "";
@@ -567,7 +565,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B21AEFF02A9B4B120006EC12 /* Preview Assets.xcassets in Resources */,
 				B26E0DA52AA65C6900E116F9 /* InfoPlist.strings in Resources */,
 				B26E0D9D2AA6282A00E116F9 /* Localizable.strings in Resources */,
 				B21AEFED2A9B4B120006EC12 /* Assets.xcassets in Resources */,
@@ -603,7 +600,6 @@
 				B2B491DC2A9B6EFE00C5C64D /* DetectionResponse.swift in Sources */,
 				B2B491D32A9B63E200C5C64D /* NetworkClient.swift in Sources */,
 				B2A976542B133E58000BF650 /* AppAnimations.swift in Sources */,
-				B2B491EB2A9C8F3E00C5C64D /* ColorScheme.swift in Sources */,
 				B26E02072A9CC33000E13B28 /* HelperTextView.swift in Sources */,
 				B2B1F3402AA50DEA0064B8DA /* UserInputConstants.swift in Sources */,
 				B2B491D12A9B631A00C5C64D /* DetectorViewModel.swift in Sources */,
@@ -624,6 +620,13 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		B26EA7672B134C4100D420EF /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			productRef = B26EA7662B134C4100D420EF /* RswiftGenerateInternalResources */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		B26E0D9F2AA6282A00E116F9 /* Localizable.strings */ = {
@@ -859,6 +862,14 @@
 				minimumVersion = 2.0.0;
 			};
 		};
+		B26EA75E2B134BF700D420EF /* XCRemoteSwiftPackageReference "R" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/mac-cain13/R.swift";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 7.4.0;
+			};
+		};
 		B2B1F3352AA386A50064B8DA /* XCRemoteSwiftPackageReference "TOCropViewController" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/TimOliver/TOCropViewController";
@@ -874,6 +885,15 @@
 			isa = XCSwiftPackageProductDependency;
 			package = B222AD002AA2077100DA21DA /* XCRemoteSwiftPackageReference "Factory" */;
 			productName = Factory;
+		};
+		B26EA7642B134C2A00D420EF /* RswiftLibrary */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = B26EA75E2B134BF700D420EF /* XCRemoteSwiftPackageReference "R" */;
+			productName = RswiftLibrary;
+		};
+		B26EA7662B134C4100D420EF /* RswiftGenerateInternalResources */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = "plugin:RswiftGenerateInternalResources";
 		};
 		B2B1F3362AA386A50064B8DA /* CropViewController */ = {
 			isa = XCSwiftPackageProductDependency;

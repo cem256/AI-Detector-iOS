@@ -11,7 +11,7 @@ struct HeaderView: View {
     var body: some View {
         HStack {
             Spacer()
-            Text("APP_NAME")
+            Text(R.string.localizable.app_NAME())
                 .font(.title)
                 .fontWeight(.medium)
 

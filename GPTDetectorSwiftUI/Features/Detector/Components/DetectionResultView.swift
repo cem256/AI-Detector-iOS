@@ -15,7 +15,7 @@ struct DetectionResultView: View {
             Text(resultFromResponse.title)
             Text(resultFromResponse.subtitle)
         }
-        .foregroundColor(Color.theme.secondaryTextColor)
+        .foregroundColor(Color(R.color.secondaryTextColor.name))
         .font(.headline)
         .frame(maxWidth: .infinity)
         .padding(.vertical, .padding.medium)
@@ -23,16 +23,16 @@ struct DetectionResultView: View {
         .cornerRadius(.borderRadius.regular)
     }
 
-    private var resultFromResponse: (title: LocalizedStringKey, subtitle: LocalizedStringKey, backgroundColor: Color) {
+    private var resultFromResponse: (title: String, subtitle: String, backgroundColor: Color) {
         switch detectionResponse?.uClassification {
         case .initial, .none:
-            return ("DETECTOR_CLASSIFICATION_TITLE_INITIAL", "DETECTOR_CLASSIFICATION_DESCRIPTION_INITIAL", Color.theme.accentColor)
+            return (R.string.localizable.detector_CLASSIFICATION_TITLE_INITIAL(), R.string.localizable.detector_CLASSIFICATION_DESCRIPTION_INITIAL(), Color(R.color.accentColor.name))
         case .ai:
-            return ("DETECTOR_CLASSIFICATION_TITLE_AI", "DETECTOR_CLASSIFICATION_DESCRIPTION_AI", Color.theme.aiContentColor)
+            return (R.string.localizable.detector_CLASSIFICATION_TITLE_AI(), R.string.localizable.detector_CLASSIFICATION_DESCRIPTION_AI(), Color(R.color.aiContentColor.name))
         case .mixed:
-            return ("DETECTOR_CLASSIFICATION_TITLE_MIXED", "DETECTOR_CLASSIFICATION_DESCRIPTION_MIXED", Color.theme.mixedContentColor)
+            return (R.string.localizable.detector_CLASSIFICATION_TITLE_MIXED(), R.string.localizable.detector_CLASSIFICATION_DESCRIPTION_MIXED(), Color(R.color.mixedContentColor.name))
         case .human:
-            return ("DETECTOR_CLASSIFICATION_TITLE_HUMAN", "DETECTOR_CLASSIFICATION_DESCRIPTION_HUMAN", Color.theme.humanContentColor)
+            return (R.string.localizable.detector_CLASSIFICATION_TITLE_HUMAN(), R.string.localizable.detector_CLASSIFICATION_DESCRIPTION_HUMAN(), Color(R.color.humanContentColor.name))
         }
     }
 }

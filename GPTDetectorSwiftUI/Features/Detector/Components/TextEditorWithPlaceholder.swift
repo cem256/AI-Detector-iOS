@@ -9,7 +9,7 @@ import SwiftUI
 
 struct TextEditorWithPlaceholder: View {
     @Binding var text: String
-    let placeholder: LocalizedStringKey
+    let placeholder: String
     @FocusState private var isFocused
 
     var body: some View {
@@ -27,11 +27,11 @@ struct TextEditorWithPlaceholder: View {
                 TextEditor(text: $text)
                     .padding()
                     .scrollContentBackground(.hidden)
-                    .background(Color.theme.backgroundColor)
+                    .background(Color(R.color.backgroundColor.name))
                     .opacity(text.isEmpty ? 0.5 : 1)
                     .overlay(
                         RoundedRectangle(cornerRadius: .borderRadius.regular)
-                            .stroke(isFocused ? Color.theme.accentColor : Color.theme.disabledColor, lineWidth: 2)
+                            .stroke(isFocused ? Color(R.color.accentColor.name) : Color(R.color.disabledColor.name), lineWidth: 2)
                     )
 
                 Spacer()
