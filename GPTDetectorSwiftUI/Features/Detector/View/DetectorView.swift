@@ -28,9 +28,17 @@ struct DetectorView: View {
                     TextEditorButtons(onClearButtonTapped: vm.onClearButtonTapped, onPhotoLibraryButtonTapped: vm.onPhotoLibraryButtonTapped, onCameraButtonTapped: vm.onCameraButtonTapped)
                 }
                 HelperTextView(isValidInput: vm.isValidInput, inputLength: vm.userInputLength)
+                    .offset(x: vm.isAnimationActive ? .spacing.high : .spacing.zero)
                 AsyncButton(action: {
-                    await vm.detect()
-                }, isLoading: vm.isLoading, isDisabled: vm.isLoading || !vm.isValidInput, buttonTitle: "DETECTOR_BUTTON_ANALYZE")
+                    if vm.isValidInput {
+                        await vm.detect()
+                    } else {
+                        vm.toggleAnimation()
+                        withAnimation(.animations.spring) {
+                            vm.toggleAnimation()
+                        }
+                    }
+                }, isLoading: vm.isLoading, buttonTitle: "DETECTOR_BUTTON_ANALYZE")
             }
             .padding()
             .alert(LocalizedStringKey(vm.errorType?.errorTitle ?? AppError.unknownError.errorTitle), isPresented: $vm.showingError, actions: {

@@ -8,6 +8,7 @@
 import Foundation
 
 struct Spacing {
+    var zero: CGFloat = 0
     var low: CGFloat = 4
     var medium: CGFloat = 8
     var high: CGFloat = 12

@@ -10,7 +10,6 @@ import SwiftUI
 struct AsyncButton: View {
     let action: () async -> Void
     let isLoading: Bool
-    let isDisabled: Bool
     let buttonTitle: LocalizedStringKey
 
     var body: some View {
@@ -26,10 +25,9 @@ struct AsyncButton: View {
             }
         }
         .frame(maxWidth: .infinity, minHeight: .buttonSize.regular)
-        .background(isLoading || isDisabled ? Color.theme.disabledColor : Color.theme.accentColor)
+        .background(isLoading ? Color.theme.disabledColor : Color.theme.accentColor)
         .foregroundColor(Color.theme.secondaryTextColor)
         .font(.headline)
         .cornerRadius(.borderRadius.regular)
-        .disabled(isDisabled)
     }
 }

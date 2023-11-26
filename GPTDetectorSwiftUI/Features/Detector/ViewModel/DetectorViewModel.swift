@@ -21,6 +21,7 @@ final class DetectorViewModel: ObservableObject {
 
     @Published var userInput: String = ""
     @Published private(set) var isLoading: Bool = false
+    @Published private(set) var isAnimationActive = false
     @Published private(set) var detectionResult: DetectionResponse?
 
     @Published var showingError: Bool = false
@@ -42,6 +43,10 @@ final class DetectorViewModel: ObservableObject {
 
     var userInputLength: Int {
         formatUserInput().count
+    }
+
+    func toggleAnimation() {
+        isAnimationActive.toggle()
     }
 
     private func formatUserInput() -> String {
