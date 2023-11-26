@@ -13,21 +13,26 @@ struct AsyncButton: View {
     let buttonTitle: String
 
     var body: some View {
-        Button {
+        Button(action: {
             Task {
                 await action()
             }
-        } label: {
-            if isLoading {
-                ProgressView()
-            } else {
-                Text(buttonTitle)
+        }) {
+            HStack {
+                Spacer()
+                if isLoading {
+                    ProgressView()
+                }
+                else {
+                    Text(buttonTitle)
+                }
+                Spacer()
             }
+            .foregroundColor(Color(R.color.secondaryTextColor.name))
+            .font(.headline)
         }
         .frame(maxWidth: .infinity, minHeight: .buttonSize.regular)
         .background(isLoading ? Color(R.color.disabledColor.name) : Color(R.color.accentColor.name))
-        .foregroundColor(Color(R.color.secondaryTextColor.name))
-        .font(.headline)
         .cornerRadius(.borderRadius.regular)
     }
 }
