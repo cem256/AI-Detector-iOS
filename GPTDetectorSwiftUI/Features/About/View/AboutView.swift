@@ -65,6 +65,12 @@ private struct LinksSection: View {
                     Text(R.string.localizable.about_SHARE_APP())
                 }
             }
+            Link(destination: URLConstants.contributionUrl) {
+                HStack {
+                    Image(systemName: "character.bubble")
+                    Text(R.string.localizable.about_CONTRIBUTE())
+                }
+            }
         }
     }
 }

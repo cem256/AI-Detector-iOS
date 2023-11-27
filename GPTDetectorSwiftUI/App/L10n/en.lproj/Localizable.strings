@@ -52,6 +52,7 @@
 "ABOUT_PRIVACY_POLICY" = "Privacy Policy";
 "ABOUT_REVIEW_APP" = "Review the App";
 "ABOUT_SHARE_APP" = "Share the App";
+"ABOUT_CONTRIBUTE" = "Contribute";
 "ABOUT_FAQ" = "Frequently Asked Questions";
 "ABOUT_FAQ_Q1" = "How results are calculated?";
 "ABOUT_FAQ_Q1_A1" = "- Large language models like ChatGPT typically generate text that is less complex and random compared to human-created content. The level of randomness and complexity can be analyzed to differentiate between AI-generated and human-created content.";
