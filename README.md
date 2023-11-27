@@ -37,6 +37,25 @@ Developed with [MVVM](https://en.wikipedia.org/wiki/Model%E2%80%93view%E2%80%93v
 - "Feature" folder represents the app's feature set.
 - "App" folder holds files specific to this particular application.
 
+## Contributing
+### Translation
+You can help translate this app to other languages!
+
+1. Fork this repository
+2. Choose one
+    - Add missing translations in existing languages
+   - Improve translations in existing languages: Update desired languages `Localizable.strings` in [GPTDetectorSwiftUI/App/L10n][l10n]
+   - Add new languages:
+     1. Open the settings for your Xcode project.
+     2. Look for the “Localizations” section. It may be under the “Info”
+     3. Click the “+” icon then choose the language you want to add support for. This will create a new `Localizable.strings` in [GPTDetectorSwiftUI/App/L10n][l10n]
+     4. Add the translations for each key-value pair.
+3. Run the app
+   1. Make sure you have this app once.
+4. Open a pull request
+
+[l10n]: https://github.com/cem256/GPT-Detector-iOS/tree/master/GPTDetectorSwiftUI/App/L10n
+
 ## Packages
 
 - Dependency Injection
