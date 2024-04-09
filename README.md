@@ -19,7 +19,7 @@ SwiftUI implementation of [GPT Detector](https://github.com/cem256/GPT-Detector)
 
 ## How results are calculated?
 
-- Large language models like ChatGPT typically generate text that is less complex and random compared to human-created content. The level of randomness and complexity can be analyzed to differentiate between AI-generated and human-created content.
+- Large language models typically generate text that is less complex and random compared to human-created content. The level of randomness and complexity can be analyzed to differentiate between AI-generated and human-created content.
 
 ## What are the limitations of the AI Detector?
 
