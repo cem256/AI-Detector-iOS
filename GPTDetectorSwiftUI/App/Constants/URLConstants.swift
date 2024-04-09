@@ -10,7 +10,7 @@ import Foundation
 struct URLConstants {
     private init() {}
 
-    static let appStoreUrl: URL = .init(string: "https://apps.apple.com/app/id6466612799")!
+    static let appStoreUrl: URL = .init(string: "https://apps.apple.com/app/gpt-detector/id6466612799")!
     static let contributionUrl: URL = .init(string: "https://github.com/cem256/GPT-Detector-iOS")!
     static let privacyPolicyUrl: URL = .init(string: "https://cem256.github.io/GPT-Detector/privacy-policy.html")!
 }
