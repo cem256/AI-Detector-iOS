@@ -33,6 +33,7 @@ final class DetectorViewModel: ObservableObject {
 
     @Published var showingScreenCover: Bool = false
     @Published var showingImageCropper: Bool = false
+    private var numberOfRequests: Int = 0
 
     var isValidInput: Bool {
         if userInputLength < UserInputConstants.minInputLength || userInputLength > UserInputConstants.maxInputLength {
@@ -66,6 +67,10 @@ final class DetectorViewModel: ObservableObject {
         }
         do {
             let result = try await detectorService.detect(input: userInput)
+            numberOfRequests += 1
+            if numberOfRequests == 2 {
+                ReviewAppUtils.reviewApp()
+            }
             detectionResult = result
         }
         catch let error as AppError {
