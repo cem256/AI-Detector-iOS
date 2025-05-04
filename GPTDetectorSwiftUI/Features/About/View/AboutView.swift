@@ -13,7 +13,6 @@ struct AboutView: View {
         List {
             AppSection()
             LinksSection()
-            MoreAppsSection()
             FAQSection()
         }
         .background(Color(R.color.backgroundColor.name))
@@ -69,27 +68,6 @@ private struct LinksSection: View {
                 HStack {
                     Image(systemName: "character.bubble")
                     Text(R.string.localizable.about_CONTRIBUTE())
-                }
-            }
-        }
-    }
-}
-
-private struct MoreAppsSection: View {
-    var body: some View {
-        Section(header: Text(R.string.localizable.about_DISCOVER_MORE_APPS())) {
-            Link(destination: URLConstants.passwordGeneratorAppStoreUrl) {
-                HStack(spacing: .spacing.high) {
-                    Image(R.image.generatorIcon)
-                        .resizable()
-                        .scaledToFit()
-                        .frame(width: .imageSize.regular, height: .imageSize.regular)
-                    VStack(alignment: .leading) {
-                        Text(R.string.localizable.about_PASSWORD_GENERATOR())
-                            .font(.headline)
-                        Text(R.string.localizable.about_PASSWORD_GENERATOR_DESCRIPTION())
-                            .font(.subheadline)
-                    }
                 }
             }
         }
